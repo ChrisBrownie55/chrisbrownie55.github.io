@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url("desk-background.png");
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 0;
+  justify-content: center;
+  align-content: center;
+}
+
+header > img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+
+header > p {
+  text-align: center;
+  font-family: Roboto;
+  color: #eee;
+  
+}
+
+header > p:not(:last-child) {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+header > p:last-child {
+  font-size: 1.9rem;
+  margin-top: 0.6rem;
+}
