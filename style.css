@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 * {
   margin: 0;
@@ -18,7 +18,7 @@ header {
   background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
-  padding: 4rem 0;
+  padding: 5rem 0;
   justify-content: center;
   align-content: center;
 }
@@ -32,17 +32,26 @@ header > img {
 
 header > p {
   text-align: center;
-  font-family: Roboto;
-  color: #eee;
-  
+  font-family: Raleway;
 }
 
 header > p:not(:last-child) {
   font-size: 2.5rem;
-  margin-top: 1rem;
+  display: table;
+  padding: 0.8rem 1.4rem;
+  background-color: #eee;
+  color: #222;
+  margin: 2rem auto 0;
 }
 
 header > p:last-child {
   font-size: 1.9rem;
-  margin-top: 0.6rem;
+  margin-top: 1.2rem;
+  color: #eee;
+}
+
+@media only screen and (min-width: 550px) {
+  header {
+    padding: 8rem 0;
+  }
 }
