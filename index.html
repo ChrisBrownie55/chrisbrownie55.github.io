@@ -1,35 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="UTF-8">
+    <meta charset=UTF-8>
+    <meta name=viewport content='width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=0'>
     <title>Christopher Brown</title>
-    <link href="style.css" rel="stylesheet"/>
-    <link rel="icon" href="cb.png" type="image/png"/>
-    <script src="https://use.fontawesome.com/e2f79445e7.js"></script>
-    <script src="main.js"></script>
+    <link href='style.css' rel=stylesheet>
+    <link rel=icon href='cb.png' type=image/png>
+    <script src='https://use.fontawesome.com/e2f79445e7.js'></script>
+    <script src='main.js'></script>
   </head>
   <body>
     <main>
       <header>
-        <img alt="Self portrait of Christopher Brown" src="profilePhoto.jpg">
-        <h1>
+        <img alt='Self portrait of Christopher Brown' src='profilePhoto.jpg'>
+        <h1 id=availableForHireBanner>
           <span>Christopher Brown</span>
           <span>AVAILABLE FOR HIRE</span>
         </h1>
         <h2>Front End Web Developer</h2>
-        <p id="learnmore">Learn More About What I Do
+        <p id=learnmore>Learn More About What I Do
           <br>
-          <i class="fa fa-chevron-down"></i>
+          <i class='fa fa-chevron-down'></i>
         </p>
       </header>
-      <section id="expertise">
-        
+      <section id=expertise>
+        <p></p>
       </section>
       <section>
         
       </section>
-      <section>
-        
+      <section id=hireForm>
+        <form accept-charset=UTF-8 action='https://usebasin.com/f/a8eea5a304e0' method=POST>
+          <h1>Contact Form</h1>
+          <div class=float-input>
+            <input type=text id=name name=name title='Name must contain only letters and spaces.' pattern=[a-zA-Z\\s]+ required>
+            <label for=name>Your Name *</label>
+          </div>
+          <div class=float-input>
+            <input type=email id=email name=email required>
+            <label for=email>Email Address *</label>
+          </div>
+          <div class='float-input'>
+            <input type=tel id=phone name=phone>
+            <label for=phone>Telephone Number</label>
+          </div>
+          <div class=float-input>
+            <input type=url id=website name=website>
+            <label for=website>Website</label>
+          </div>
+          <textarea name=about-project id=about-project placeholder='Tell me about your project, what is it? Why are you doing it? What do you hope to accomplish? How can I help? Timeline and budget details are also appreciated. *' required></textarea>
+          <button type=submit>
+            <i class='fa fa-paper-plane'></i>
+          </button>
+        </form>
       </section>
       <footer>
         
