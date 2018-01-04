@@ -39,6 +39,10 @@ html {
   font-size: 13px;
 }
 
+body {
+  font-family: Montserrat, Raleway, Roboto, Verdana, Arial, Sans-Serif;
+}
+
 body::before {
     content: 'WORK IN PROGRESS';
     left: 0;
@@ -192,6 +196,7 @@ section#hireForm > form > h1 {
   color: white;
   font-size: 1.5rem;
   resize: none;
+  font-family: Questrial;
 }
 
 .float-input > textarea {

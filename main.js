@@ -1,3 +1,6 @@
+const checkForInput = event => event.target.value === '' ?
+        event.target.classList.remove( 'notempty' ) :
+        event.target.classList.add( 'notempty' )
 
 document.addEventListener( 'DOMContentLoaded', () => {
   
@@ -11,10 +14,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
   })
   
   Array.from( document.querySelectorAll( '.float-input > input, .float-input > textarea' ) )
-    .forEach( el => el.addEventListener( 'input',
-      event => event.target.value === '' ?
-        event.target.classList.remove( 'notempty' ) :
-        event.target.classList.add( 'notempty' ) ) )
+    .forEach( el => el.addEventListener( 'input', checkForInput ) | checkForInput( { target: el } ) )
   
 })
 
