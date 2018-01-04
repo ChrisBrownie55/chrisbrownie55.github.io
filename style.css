@@ -8,7 +8,26 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white;
+  caret-color: white;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 html {
@@ -92,7 +111,7 @@ header > h1 > span:last-child {
   line-height: 2.5rem;
   top: calc( 50% - 1.1rem );
   width: 100%;
-  color: white;
+  color: #222;
   font-family: var( --font );
   font-weight: 700;
 }
@@ -121,15 +140,14 @@ header > p:active {
   color: white;
 }
 
-header > p > i {
-  /* Paper Airplan Icon */
+/*header > p > i {
   transition: color 0.2s 0 linear;
   margin-top: 0.75rem;
   color: inherit;
   width: 1rem;
   height: 1rem;
   animation: arrow-shake 1.75s ease-in-out infinite;
-}
+}*/
 
 
 /* Form to get in Contact  */
@@ -145,7 +163,7 @@ section#hireForm > form {
   grid-template-columns: 1fr;
   grid-gap: 1.2rem;
   height: 40rem;
-  max-height: 100vh;
+  max-height: calc( 100vh - 6rem );
   color: white;
   font-family: var( --font2 );
 }
@@ -167,6 +185,7 @@ section#hireForm > form > h1 {
   border-bottom: solid 1px #fff;
   color: white;
   font-size: 1.5rem;
+  resize: none;
 }
 
 .float-input > textarea {
@@ -207,6 +226,11 @@ section#hireForm > form > h1 {
   cursor: text;
 }
 
+.float-input.textarea > label {
+  top: 2rem;
+  transition-duration: 0.25s 0.15s 0.15s;
+}
+
 .float-input > input:focus + label, .float-input > input.notempty + label {
   font-size: 0.8rem;
   top: -15%;
@@ -228,7 +252,7 @@ section#hireForm > form > button {
   border: 2px solid #fed766;
   border-radius: 4rem;
   cursor: pointer;
-  transform: translateY( 20% );
+  transform: translateY( 1rem );
   text-transform: uppercase;
   font-size: 1.1rem;
   font-weight: 800;
@@ -244,7 +268,6 @@ section#hireForm > form > button:active {
 }
 
 /* Media Queries */
-
 @media ( pointer: fine ) {
   header > h1 {
     cursor: pointer;
@@ -305,6 +328,31 @@ section#hireForm > form > button:active {
   
   header > h1 {
     padding: 0.8rem 3rem;
+  }
+  
+  section#hireForm > form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat( 3, 1fr ) 1.5fr 1fr;
+    grid-column-gap: 4rem;
+    margin: 0 auto;
+    max-width: 70rem;
+  }
+  
+  section#hireForm > form > h1 {
+    grid-area: 1 / span 2
+  }
+  
+  .float-input.textarea > label {
+    top: 40%;
+  }
+  
+  section#hireForm > form > .textarea {
+    grid-area: 4 / span 2;
+  }
+  
+  section#hireForm > form > button {
+    grid-area: 5 / span 2;
+    transform: translateY( 3rem );
   }
 }
 

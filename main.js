@@ -6,7 +6,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
   })
   
   availableForHireBanner.addEventListener( 'click', () => {
-    if ( getComputedStyle( availableForHireBanner ).backgroundColor === "rgba(255, 182, 131, 0.9)" )
+    if ( getComputedStyle( availableForHireBanner ).backgroundColor.indexOf( '254, 215, 102' ) !== -1 )
       hireForm.smoothScrollIntoView( 'easeInOutExpo', 1500, 'start' )
   })
   
