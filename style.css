@@ -362,9 +362,19 @@ section#hireForm > form > button:active {
   }
 }
 
-@media ( max-width: 550px ) and ( max-height: 580px ) {
+@media ( max-width: 550px ) and ( max-height: 580px ), ( orientation: landscape ) and ( max-height: 500px ) {
+  section#hireForm {
+    height: 150vh;
+  }
+  
   section#hireForm > form {
+    max-height: 100%;
     grid-template-rows: repeat( 5, 1fr ) 2.5fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  
+  section#hireForm > form > * {
+    grid-area: unset !important;
   }
 }
 
