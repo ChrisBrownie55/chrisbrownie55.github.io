@@ -362,7 +362,7 @@ section#hireForm > form > button:active {
   }
 }
 
-@media ( max-width: 550px ) and ( max-height: 570px ) {
+@media ( max-width: 550px ) and ( max-height: 580px ) {
   section#hireForm > form {
     grid-template-rows: repeat( 5, 1fr ) 2.5fr 1fr;
   }
