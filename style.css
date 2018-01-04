@@ -25,9 +25,13 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-text-fill-color: white;
   caret-color: white;
+}
+
+input, textarea, select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+  -webkit-border-radius: 0;
   border-radius: 0;
 }
 
