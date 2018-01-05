@@ -150,14 +150,15 @@ header > p:active {
   color: white;
 }
 
-/*header > p > i {
+header > p > i {
+  /* Chevron Down */
   transition: color 0.2s 0 linear;
   margin-top: 0.75rem;
   color: inherit;
   width: 1rem;
   height: 1rem;
   animation: arrow-shake 1.75s ease-in-out infinite;
-}*/
+}
 
 
 /* Form to get in Contact  */
