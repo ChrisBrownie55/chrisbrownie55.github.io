@@ -14,18 +14,55 @@
 /* Change Autocomplete styles in Chrome*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus
+input:-webkit-autofill:focus,
 input:-webkit-autofill, 
 textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 999999s 999999s;
+  -webkit-transition: background-color 999999s 999999s;
   -webkit-text-fill-color: white;
+  text-fill-color: white;
   caret-color: white;
 }
+
+/* Change Autocomplete Firefox styles*/
+input:-moz-autofill,
+input:-moz-autofill:hover, 
+input:-moz-autofill:focus
+input:-moz-autofill, 
+textarea:-moz-autofill,
+textarea:-moz-autofill:hover
+textarea:-moz-autofill:focus,
+select:-moz-autofill,
+select:-moz-autofill:hover,
+select:-moz-autofill:focus, {
+  transition: background-color 999999s 999999s;
+  -moz-transition: background-color 999999s 999999s;
+  -moz-text-fill-color: white;
+  text-fill-color: white;
+  caret-color: white;
+}
+
+/* Change Autocomplete styles*/
+input:autofill,
+input:autofill:hover, 
+input:autofill:focus
+input:autofill, 
+textarea:autofill,
+textarea:autofill:hover
+textarea:autofill:focus,
+select:autofill,
+select:autofill:hover,
+select:autofill:focus, {
+  transition: background-color 999999s 999999s;
+  text-fill-color: white;
+  caret-color: white;
+}
+
 
 input, textarea, select {
   -moz-appearance: none;
@@ -69,7 +106,8 @@ header {
   justify-content: center;
   align-content: center;
   overflow: hidden;
-  transition: height 999999s 999999s ease-in;
+  transition: height 999999s 999999s;
+  -webkit-transition: height 9999999s 999999s;
 }
 
 header > img {
@@ -98,12 +136,14 @@ header > h1 {
   -webkit-user-select: none;
   -ms-user-select: none;
   transition: background-color 0.2s 0.05s ease-in-out;
+  -webkit-transition: background-color 0.2s 0.05s ease-in-out;
   border-radius: 4rem;
 }
 
 header > h1 > span {
   white-space: nowrap;
   transition: transform 0.2s 0.05s ease-in-out;
+  -webkit-transition: -webkit-transform 0.2s 0.05s ease-in-out;
   text-align: center;
 }
 
@@ -145,6 +185,7 @@ header > p {
   -ms-user-select: none;
   cursor: pointer;
   transition: color 0.05s linear;
+  -webkit-transition: color 0.05s linear;
 }
 
 header > p:active {
@@ -154,11 +195,14 @@ header > p:active {
 header > p > i {
   /* Chevron Down */
   transition: color 0.2s 0 linear;
+  -webkit-transition: color 0.2s 0 linear;
   margin-top: 0.75rem;
   color: inherit;
   width: 1rem;
   height: 1rem;
   animation: arrow-shake 1.75s ease-in-out infinite;
+  -webkit-animation: arrow-shake 1.75s ease-in-out infinite;
+  -moz-animation: arrow-shake 1.75s ease-in-out infinite;
 }
 
 
@@ -222,6 +266,7 @@ input.notempty:invalid, textarea.notempty:invalid {
   bottom: -1px;
   background-color: #fed766;
   transition: width 0.25s;
+  -webkit-transition: width 0.25s;
 }
 
 .float-input.textarea::after {
@@ -242,7 +287,9 @@ input:focus, textarea:focus, button:focus, select:focus {
   left: 0;
   font-size: 1.5rem;
   transition: top, font-size, color;
+  -webkit-transition: top, font-size, color;
   transition-duration: 0.15s;
+  -webkit-duration: 0.15s;
   cursor: text;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -252,6 +299,7 @@ input:focus, textarea:focus, button:focus, select:focus {
 .float-input.textarea > label {
   top: 20%;
   transition-duration: 0.25s 0.15s 0.15s;
+  -webkit-transition-duration: 0.25s 0.15s 0.15s;
 }
 
 .float-input > input:focus + label, .float-input > input.notempty + label {
@@ -281,6 +329,8 @@ section#hireForm > form > button {
   font-family: var( --font );
   transition: background-color 0.2s, color 0.2s, width 0.35s;
   transition-timing-function: ease-in-out;
+  -webkit-transition: background-color 0.2s, color 0.2s, width 0.35s;
+  -webkit-transition-timing-function: ease-in-out;
 }
 
 button {
@@ -316,6 +366,7 @@ section#hireForm > form > button:active {
   
   header > p {
     transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
   }
   
   header > p:hover {
@@ -422,9 +473,24 @@ section#hireForm > form > button:active {
   50% {
     transform: translateY( 0.5rem );
   }
-  
-  to {
+}
+
+@-webkit-keyframes arrow-shake {
+  from {
     transform: translateY( 0 );
+  }
+
+  50% {
+    transform: translateY( 0.5rem );
   }
 }
 
+@-moz-keyframes arrow-shake {
+  from {
+    transform: translateY( 0 );
+  }
+
+  50% {
+    transform: translateY( 0.5rem );
+  }
+}
