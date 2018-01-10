@@ -479,12 +479,16 @@ section#hireForm > form > button:active {
     top: 0;
     left: 0;
     position: fixed;
-    background-image: url( 'headerBackground.jpeg' );
+    background-image: url( 'smallHeaderBackground.jpg' );
     filter: brightness( 50% ) blur( 0 );
     background-size: cover;
     background-position: 46.9% center;
     will-change: transform;
     z-index: -1;
+  }
+
+  header.hdBackground::before {
+    background-image: url( 'headerBackground.jpg' );
   }
   
   header > h1 {

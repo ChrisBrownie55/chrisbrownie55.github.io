@@ -27,8 +27,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
       el.appendChild( child )
     })
   })
-
+  
   animatePhrases()
+
+  asyncLoadImage( 'headerBackground.jpg' )
+    .then( () => document.querySelector( 'header' ).classList.add( 'hdBackground' ) )
+    .catch( err => console.error( err ) )
 })
 
 function animatePhrases() {
@@ -71,3 +75,22 @@ function animatePhrases() {
 
   animatePhrase()
 }
+
+function rejectError( message, filename, lineno, colno, error ) {
+  if ( error != null )
+    reject( error )
+  else
+    reject( message )
+}
+
+function asyncLoadImage( url ) {
+  return new Promise( ( resolve, reject ) => {
+    const newImage = new Image()
+    newImage.onload = function() {
+      resolve( newImage )
+    }
+    newImage.onerror = newImage.onabort = rejectError
+    
+    newImage.src = url
+  })
+} 
