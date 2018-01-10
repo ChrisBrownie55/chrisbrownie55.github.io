@@ -15,19 +15,29 @@
   <body>
     <main>
       <header>
-        <img alt='Self portrait of Christopher Brown' src='profilePhoto.jpg'>
-        <h1 id=availableForHireBanner>
-          <span>Christopher Brown</span>
-          <span>AVAILABLE FOR HIRE</span>
-        </h1>
-        <h2>Front End Web Developer</h2>
+        <h1>Hi, I'm Chris. I build websites<br>FYI, I'm not a designer.</h1>
+        <button class=theme-button id=hireButton>Yes, I'm Available For Hire</button>
         <p id=learnmore>Learn More About What I Do
           <br>
           <i class='fa fa-chevron-down'></i>
         </p>
       </header>
       <section id=expertise>
-        <p></p>
+        <h1>If you didn't know, I can build</h1>
+        <div id=phrases>
+          <p class='active' value='Landing Pages.'></p>
+          <p value='Web Applications.'></p>
+          <p value='Fluid Interactivity.'></p>
+          <p value='Desktop Notifications.'></p>
+          <p value='Corporate Websites.'></p>
+        </div>
+        <div id=phraseInfo>
+          <a href='https://codepen.io/chbchb55/full/rpYdox/'><img src='landingPage.png'></a>
+          <a href=''><img src=''></a>
+          <a href=''><img src=''></a>
+          <button id=testNotificationsButton>Test Notifications</button>
+          <a href=''><img src=''></a>
+        </div>
       </section>
       <section>
         
@@ -55,7 +65,7 @@
             <textarea name=about-project id=about-project required></textarea>
             <label for=about-project>Tell me about your project, what is it? Why are you doing it? What do you hope to accomplish? *</label>
           </div>
-          <button type=submit>
+          <button class=theme-button type=submit>
             Submit Your Project
           </button>
         </form>
