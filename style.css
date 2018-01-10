@@ -290,7 +290,7 @@ section#expertise > div#phrases > p.active::after {
 }
 
 section#expertise > div#phrases > p.active.blink::after {
-  animation: blink-cursor 0.5s infinite steps(2);
+  animation: opacity 0.5s infinite steps(2);
 }
 
 section#expertise > div#phrases > p.active.hide-cursor::after {
@@ -472,8 +472,12 @@ section#hireForm > form > button:active {
     position: relative;
     background: linear-gradient( 90deg, #313d4199, #313d4199 );
   }
-  
+
   header::before {
+    background-image: url( 'smallHeaderBackground.jpg' );
+  }
+  
+  header::before, header::after {
     /* Simulates `background-attachment: fixed` without slowing down */
     content: ' ';
     width: 100%;
@@ -481,15 +485,19 @@ section#hireForm > form > button:active {
     top: 0;
     left: 0;
     position: fixed;
-    background-image: url( 'smallHeaderBackground.jpg' );
-    filter: brightness( 50% ) blur( 0 );
+    filter: brightness( 50% );
     background-size: cover;
     background-position: 46.9% center;
     will-change: transform;
     z-index: -1;
   }
 
-  header.hdBackground::before {
+  header::after {
+    opacity: 0;
+  }
+
+  header.hdBackground::after {
+    animation: opacity 1s reverse forwards ease-in-out;
     background-image: url( 'headerBackground.jpg' );
   }
   
@@ -583,7 +591,7 @@ section#hireForm > form > button:active {
   }
 }
 
-@keyframes blink-cursor {
+@keyframes opacity {
   from, to {
     opacity: 1;
   }
@@ -593,7 +601,7 @@ section#hireForm > form > button:active {
   }
 }
 
-@-webkit-keyframes blink-cursor {
+@-webkit-keyframes opacity {
   from, to {
     opacity: 1;
   }
@@ -603,7 +611,7 @@ section#hireForm > form > button:active {
   }
 }
 
-@-moz-keyframes blink-cursor {
+@-moz-keyframes opacity {
   from, to {
     opacity: 1;
   }
