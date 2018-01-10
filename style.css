@@ -202,6 +202,7 @@ header > p {
   transition: color 0.05s linear;
   -webkit-transition: color 0.05s linear;
   will-change: color;
+  min-height: 46.5px;
 }
 
 header > p:active {
