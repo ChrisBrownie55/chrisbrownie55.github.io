@@ -468,6 +468,7 @@ section#hireForm > form > button:active {
   }
   
   header {
+    position: relative;
     background: linear-gradient( 90deg, #313d4199, #313d4199 );
   }
   
