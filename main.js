@@ -5,7 +5,7 @@ const checkForInput = event => event.target.value === '' ?
 document.addEventListener( 'DOMContentLoaded', () => {
   
   learnmore.addEventListener( 'click', () => {
-    expertise.smoothScrollIntoView( 'easeInOutExpo', 1500, 'start' )
+    expertise.smoothScrollIntoView( 'easeInOutExpo', 1500, 'center' )
   })
   
   hireButton.addEventListener( 'click', () => {
