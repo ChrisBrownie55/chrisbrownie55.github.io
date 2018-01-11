@@ -262,6 +262,7 @@ section#expertise > div#phrases > p > span {
   font-size: inherit;
   font-weight: 700;
   line-height: 1.5rem;
+  will-change: display;
 }
 
 section#expertise > div#phrases > p.active > span:first-child {
@@ -339,7 +340,7 @@ section#expertise > div#phraseInfo > button {
 section#hireForm {
   width: calc( 100% - 4rem );
   background: #222;
-  padding: 3rem 2rem;
+  padding: 2rem 2rem;
 }
 
 section#hireForm > form {
@@ -418,8 +419,8 @@ input:focus, textarea:focus, button:focus, select:focus {
   font-size: 1.5rem;
   transition: top, font-size, color;
   -webkit-transition: top, font-size, color;
-  transition-duration: 0.15s;
-  -webkit-duration: 0.15s;
+  transition-duration: 0.25s, 0.15s, 0.15s;
+  -webkit-transition-duration: 0.25s, 0.15s, 0.15s;
   will-change: top, font-size, color;
   cursor: text;
   -moz-user-select: none;
@@ -428,9 +429,7 @@ input:focus, textarea:focus, button:focus, select:focus {
 }
 
 .float-input.textarea > label {
-  top: 20%;
-  transition-duration: 0.25s 0.15s 0.15s;
-  -webkit-transition-duration: 0.25s 0.15s 0.15s;
+  top: calc( 20% - 1rem );
 }
 
 .float-input > input:focus + label, .float-input > input.notempty + label {
