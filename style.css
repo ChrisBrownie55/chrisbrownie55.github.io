@@ -143,6 +143,7 @@ header {
 header > h1, header > h2, header > p {
   text-align: center;
   font-family: var( --font );
+  white-space: nowrap;
 }
 
 header > h1 {
@@ -432,6 +433,12 @@ input:focus, textarea:focus, button:focus, select:focus {
   top: calc( 20% - 1rem );
 }
 
+@media ( max-width: 345px ) {
+  .float-input > label {
+    font-size: 1.25rem;
+  }
+}
+
 .float-input > input:focus + label, .float-input > input.notempty + label {
   font-size: 0.8rem;
   top: -15%;
@@ -502,7 +509,7 @@ section#hireForm > form > button:active {
   }
   
   header > h1 {
-    padding: 0.8rem 3rem;
+    padding: 0.8rem 0;
   }
   
   section#hireForm > form {
