@@ -472,24 +472,25 @@ section#hireForm > form > button:active {
     position: relative;
     background: linear-gradient( 90deg, #313d4199, #313d4199 );
   }
-
-  header::before {
-    background-image: url( 'smallHeaderBackground.jpg' );
-  }
   
   header::before, header::after {
     /* Simulates `background-attachment: fixed` without slowing down */
     content: ' ';
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    width: calc( 100% + 16px );
+    height: calc( 100% + 16px );
+    top: -8px;
+    left: -8px;
     position: fixed;
     filter: brightness( 50% );
     background-size: cover;
     background-position: 46.9% center;
     will-change: transform;
     z-index: -1;
+  }
+
+  header::before {
+    background-image: url( 'smallHeaderBackground.jpg' );
+    filter: brightness( 50% ) blur( 4px );
   }
 
   header::after {
