@@ -3,6 +3,7 @@
 :root {
   --font: Montserrat;
   --font2: Raleway;
+  --theme-yellow: #fed766;
 }
 
 /* Change Autocomplete styles in Chrome*/
@@ -45,7 +46,7 @@ select:-moz-autofill:focus, {
 input:autofill,
 input:autofill:hover, 
 input:autofill:focus
-input:autofill, 
+input:autofill,
 textarea:autofill,
 textarea:autofill:hover
 textarea:autofill:focus,
@@ -58,7 +59,9 @@ select:autofill:focus {
 }
 
 
-input, textarea, select {
+input,
+textarea,
+select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -69,7 +72,7 @@ input, textarea, select {
 button.theme-button {
   background-color: transparent;
   color: white;
-  border: 2px solid #fed766;
+  border: 2px solid var( --theme-yellow );
   border-radius: 50px;
   cursor: pointer;
   text-transform: uppercase;
@@ -89,13 +92,13 @@ button.theme-button {
 }
 
 button.theme-button:active {
-  background-color: #fed766;
+  background-color: var( --theme-yellow );
   color: #222;
 }
 
 @media ( pointer: fine ) {
   button.theme-button:hover {
-    background-color: #fed766;
+    background-color: var( --theme-yellow );
     color: #222;
   }
 }
@@ -140,7 +143,9 @@ header {
   -webkit-transition: height 9999999s 999999s;
 }
 
-header > h1, header > h2, header > p {
+header > h1,
+header > h2,
+header > p {
   text-align: center;
   font-family: var( --font );
   white-space: nowrap;
@@ -307,40 +312,74 @@ section#expertise > div#phrases > p {
 }
 
 @media ( min-width: 450px ) {
-  section#expertise > h1, section#expertise > div#phrases > p {
+  section#expertise > h1,
+  section#expertise > div#phrases > p {
     font-size: 2rem;
   }
 }
 
 @media ( min-width: 800px ) {
-  section#expertise > h1, section#expertise > div#phrases > p {
+  section#expertise > h1,
+  section#expertise > div#phrases > p {
     font-size: 3rem;
   }
 }
 
 @media ( min-width: 1000px ) {
-  section#expertise > h1, section#expertise > div#phrases > p {
+  section#expertise > h1,
+  section#expertise > div#phrases > p {
     font-size: 3.25rem;
   }
 }
 
 section#expertise > div#phrases > p.selected {
   padding: 0 0.1rem;
+}
+
+section#expertise > div#phraseInfo > div.selected {
+  padding: 1rem;
+}
+
+section#expertise > div#phrases > p.selected,
+section#expertise > div#phraseInfo > div.selected {
   background-color: #ACCEF7;
 }
 
 section#expertise > div#phraseInfo {
-  display: none;
   justify-content: center;
   align-items: center;
+  display: flex;
+  margin-top: 3rem;
+  min-height: 22rem;
 }
 
-section#expertise > div#phraseInfo > a > img {
+section > div#phraseInfo > div {
+  display: none;
+}
+
+section > div#phraseInfo > div.active,
+section > div#phraseInfo > div.active > a {
+  display: flex;
+  flex-direction: row;
+}
+
+section#expertise > div#phraseInfo > div > a > img {
   width: 20rem;
+  height: 20rem;
+  border-radius: 0.5rem;
 }
 
-section#expertise > div#phraseInfo > button {
-  
+section#expertise > div#phraseInfo > div > button {
+  width: 14rem;
+  height: 2.8rem;
+  color: white;
+  background-color: #333;
+  border: none;
+}
+
+section#expertise > div#phraseInfo > div > button:hover {
+  width: 15rem;
+  background-color: var( --theme-yellow );
 }
 
 /* Form to get in Contact  */
@@ -370,7 +409,8 @@ section#hireForm > form > h1 {
   display: flex;
 }
 
-.float-input > input, .float-input > textarea {
+.float-input > input,
+.float-input > textarea {
   width: 100%;
   height: 100%;
   background: transparent;
@@ -383,11 +423,13 @@ section#hireForm > form > h1 {
   padding: 0;
 }
 
-input.notempty:valid, textarea.notempty:valid {
+input.notempty:valid,
+textarea.notempty:valid {
   border-bottom-color: green;
 }
 
-input.notempty:invalid, textarea.notempty:invalid {
+input.notempty:invalid,
+textarea.notempty:invalid {
   border-bottom-color: red;
 }
 
@@ -403,7 +445,7 @@ input.notempty:invalid, textarea.notempty:invalid {
   height: 1px;
   left: 0;
   bottom: -1px;
-  background-color: #fed766;
+  background-color: var( --theme-yellow );
   transition: width 0.25s;
   -webkit-transition: width 0.25s;
 }
@@ -412,7 +454,10 @@ input.notempty:invalid, textarea.notempty:invalid {
   bottom: 0;
 }
 
-input:focus, textarea:focus, button:focus, select:focus {
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
   outline: none !important;
 }
 
@@ -446,13 +491,15 @@ input:focus, textarea:focus, button:focus, select:focus {
   }
 }
 
-.float-input > input:focus + label, .float-input > input.notempty + label {
+.float-input > input:focus + label,
+.float-input > input.notempty + label {
   font-size: 0.8rem;
   top: -15%;
   color: LightGrey;
 }
 
-.float-input > textarea:focus + label, .float-input > textarea.notempty + label {
+.float-input > textarea:focus + label,
+.float-input > textarea.notempty + label {
   font-size: 0.7rem;
   top: -5%;
   color: LightGrey;
@@ -486,7 +533,8 @@ section#hireForm > form > button:active {
     background: linear-gradient( 90deg, #313d4199, #313d4199 );
   }
   
-  header::before, header::after {
+  header::before,
+  header::after {
     /* Simulates `background-attachment: fixed` without slowing down */
     content: ' ';
     width: calc( 100% + 16px );
@@ -504,6 +552,11 @@ section#hireForm > form > button:active {
   header::before {
     background-image: url( 'smallHeaderBackground.jpg' );
     filter: brightness( 50% ) blur( 4px );
+    transition: visibility 0s 2.5s;
+  }
+
+  header.hdBackground::before {
+    visibility: hidden;
   }
 
   header::after {
@@ -529,10 +582,7 @@ section#hireForm > form > button:active {
   }
   
   section#hireForm > form > h1 {
-    grid-area: 1 / span 2
-  }
-  
-  .float-input.textarea > label {
+    grid-area: 1 / span 2;
   }
   
   section#hireForm > form > .textarea {
@@ -562,7 +612,8 @@ section#hireForm > form > button:active {
   }
 }
 
-@media (max-height: 580px) and (max-width: 550px), (max-height: 500px) and (orientation: landscape) {
+@media (max-height: 580px) and (max-width: 550px),
+(max-height: 500px) and (orientation: landscape) {
   section#hireForm > form {
     max-height: 100%;
     grid-template-rows: repeat( 5, 1fr ) 2.5fr 1fr;
@@ -577,59 +628,32 @@ section#hireForm > form > button:active {
 
 /* Animations */
 @keyframes arrow-shake {
-  from {
-    transform: translateY( 0 );
-  }
-  
-  50% {
-    transform: translateY( 0.5rem );
-  }
+  from { transform: translateY( 0 ); }
+  50% { transform: translateY( 0.5rem ); }
 }
 @-webkit-keyframes arrow-shake {
-  from {
-    transform: translateY( 0 );
-  }
-
-  50% {
-    transform: translateY( 0.5rem );
-  }
+  from { transform: translateY( 0 ); }
+  50% { transform: translateY( 0.5rem ); }
 }
 @-moz-keyframes arrow-shake {
-  from {
-    transform: translateY( 0 );
-  }
-
-  50% {
-    transform: translateY( 0.5rem );
-  }
+  from { transform: translateY( 0 ); }
+  50% { transform: translateY( 0.5rem ); }
 }
 
 @keyframes blink-cursor {
-  from, to {
-    opacity: 1;
-  }
-  
-  50% {
-    opacity: 0;
-  }
+  from,
+  to { opacity: 1; }
+  50% { opacity: 0; }
 }
 @-webkit-keyframes blink-cursor {
-  from, to {
-    opacity: 1;
-  }
-  
-  50% {
-    opacity: 0;
-  }
+  from,
+  to { opacity: 1; }
+  50% { opacity: 0; }
 }
 @-moz-keyframes blink-cursor {
-  from, to {
-    opacity: 1;
-  }
-  
-  50% {
-    opacity: 0;
-  }
+  from,
+  to { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 @keyframes opacity {

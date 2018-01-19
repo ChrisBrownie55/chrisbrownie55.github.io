@@ -5,7 +5,7 @@ const checkForInput = event => event.target.value === '' ?
 document.addEventListener( 'DOMContentLoaded', () => {
   
   learnmore.addEventListener( 'click', () => {
-    expertise.smoothScrollIntoView( 'easeInOutExpo', 1500, 'center' )
+    expertise.smoothScrollIntoView( 'easeInOutExpo', 1500, 'start' )
   })
   
   hireButton.addEventListener( 'click', () => {
@@ -33,10 +33,24 @@ document.addEventListener( 'DOMContentLoaded', () => {
   asyncLoadImage( 'headerBackground.jpg' )
     .then( () => document.querySelector( 'header' ).classList.add( 'hdBackground' ) )
     .catch( err => console.error( err ) )
+  
+
+  testNotificationsButton.addEventListener( 'click', () => {
+    basicNotification( 'Test', 'Hello World, this is a test notification!', 'iconC.png' )
+      .then( event => {
+        if ( event.type === 'click' ) {
+          alert( 'You clicked the notification.' )
+        } else {
+          alert( 'You closed the notification.' )
+        }
+      })
+      .catch( err => console.error( err ) )
+  })
 })
 
 function animatePhrases() {
-  const phraseList = phrases.children
+  const phraseList = phrases.children,
+        phraseInfoList = phraseInfo.children
 
   let phraseListIndex = phraseLetterIndex = 0,
       phraseLetterList = phraseList[ phraseListIndex ].children
@@ -45,21 +59,29 @@ function animatePhrases() {
     // Select Phrase
     phraseList[ phraseListIndex ].classList.remove( 'blink' )
     phraseList[ phraseListIndex ].classList.add( 'selected' )
+    phraseInfoList[ phraseListIndex ].classList.add( 'selected' )
     phraseList[ phraseListIndex ].classList.add( 'hide-cursor' )
     setTimeout( () => {
       // Clear Phrase and input Next one
       Array.from( phraseLetterList ).forEach( letter => letter.classList.remove( 'on' ) )
       phraseLetterIndex = 0
       phraseList[ phraseListIndex ].classList = ''
+      phraseInfoList[ phraseListIndex ].classList = ''
       if ( ++phraseListIndex >= phraseList.length )
         phraseListIndex = 0
       phraseList[ phraseListIndex ].classList.add( 'active' )
+      phraseInfoList[ phraseListIndex ].classList.add( 'active' )
       phraseLetterList = phraseList[ phraseListIndex ].children
       setTimeout( animatePhrase, 80 )
-    }, 200 )
+    }, 350 )
   }
 
   function animatePhrase() {
+    const { y: phraseY, height: phraseH } = phrases.getBoundingClientRect()
+    if ( phraseY + phraseH < 0 || phraseY > window.innerHeight ) {
+      setTimeout( animatePhrase, 500 )
+      return
+    }
 
     // Animate Here
     phraseLetterList[ phraseLetterIndex ].classList.add( 'on' )
@@ -76,21 +98,38 @@ function animatePhrases() {
   animatePhrase()
 }
 
-function rejectError( message, filename, lineno, colno, error ) {
-  if ( error != null )
-    reject( error )
-  else
-    reject( message )
-}
-
 function asyncLoadImage( url ) {
   return new Promise( ( resolve, reject ) => {
     const newImage = new Image()
+    
     newImage.onload = function() {
       resolve( newImage )
     }
-    newImage.onerror = newImage.onabort = rejectError
-    
+
+    newImage.onerror = newImage.onabort = error => reject( error )
     newImage.src = url
   })
-} 
+}
+
+function spawnNotification( title, options=null ) {
+  
+  return new Promise( ( resolve, reject ) => {
+    if ( !( 'Notification' in window ) )
+      reject( 'Notification does not exist' )
+    
+    Notification.requestPermission()
+      .then( result => {
+        if ( result !== 'granted' )
+          return
+
+        let notification = new Notification( title, options )
+        notification.onclick = notification.onclose = event => resolve( event )
+        notification.onerror = notification.onabort = error => reject( error )
+      })
+      .catch( err => reject( err ) )
+  })
+}
+
+function basicNotification( title, body, icon ) {
+  return spawnNotification( title, { body: body, icon: icon } )
+}
