@@ -231,8 +231,8 @@ header > p > svg {
   margin-top: 0.75rem;
   width: 1rem;
   height: 1rem;
-  /* animation: arrow-shake 1.75s ease-in-out infinite; */
-  /* -webkit-animation: arrow-shake 1.75s ease-in-out infinite; */
+  animation: arrow-shake 1.75s ease-in-out infinite;
+  -webkit-animation: arrow-shake 1.75s ease-in-out infinite;
   -moz-animation: arrow-shake 1.75s ease-in-out infinite;
   will-change: color, transform;
 }
