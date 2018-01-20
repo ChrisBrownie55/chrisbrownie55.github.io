@@ -1,4 +1,4 @@
-@import url( 'https://fonts.googleapis.com/css?family=Raleway|Montserrat:300,500,700' );
+/* @import url( 'https://fonts.googleapis.com/css?family=Raleway|Montserrat:300,500,700' ); */
 
 :root {
   --font: Montserrat;
@@ -226,18 +226,31 @@ header > p:active {
   }
 }
 
-header > p > i {
+header > p > svg {
   /* Chevron Down */
-  transition: color 0.2s 0 linear;
-  -webkit-transition: color 0.2s 0 linear;
   margin-top: 0.75rem;
-  color: inherit;
   width: 1rem;
   height: 1rem;
-  animation: arrow-shake 1.75s ease-in-out infinite;
-  -webkit-animation: arrow-shake 1.75s ease-in-out infinite;
+  /* animation: arrow-shake 1.75s ease-in-out infinite; */
+  /* -webkit-animation: arrow-shake 1.75s ease-in-out infinite; */
   -moz-animation: arrow-shake 1.75s ease-in-out infinite;
   will-change: color, transform;
+}
+
+header > p > svg > path {
+  transition: fill 0.2s linear;
+  -webkit-transition: fill 0.2s linear;
+  fill: rgba( 255,255,255,0.7 );
+}
+
+header > p:active > svg > path {
+  fill: white;
+}
+
+@media ( pointer: fine ) {
+  header > p:hover > svg > path {
+    fill: white;
+  }
 }
 
 /* Section for showing of what I can do */
@@ -377,9 +390,16 @@ section#expertise > div#phraseInfo > div > button {
   border: none;
 }
 
-section#expertise > div#phraseInfo > div > button:hover {
+section#expertise > div#phraseInfo > div > button:active {
   width: 15rem;
   background-color: var( --theme-yellow );
+}
+
+@media ( pointer: fine ) {
+  section#expertise > div#phraseInfo > div > button:hover {
+    width: 15rem;
+    background-color: var( --theme-yellow );
+  }
 }
 
 /* Form to get in Contact  */
