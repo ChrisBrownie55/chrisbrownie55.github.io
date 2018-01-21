@@ -296,7 +296,7 @@ section#expertise {
   flex-direction: column;
 }
 
-section#expertise > h1 {
+section#expertise > h2 {
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 1.25rem;
@@ -360,21 +360,21 @@ section#expertise > div#phrases > p {
 }
 
 @media ( min-width: 450px ) {
-  section#expertise > h1,
+  section#expertise > h2,
   section#expertise > div#phrases > p {
     font-size: 2rem;
   }
 }
 
 @media ( min-width: 800px ) {
-  section#expertise > h1,
+  section#expertise > h2,
   section#expertise > div#phrases > p {
     font-size: 3rem;
   }
 }
 
 @media ( min-width: 1000px ) {
-  section#expertise > h1,
+  section#expertise > h2,
   section#expertise > div#phrases > p {
     font-size: 3.25rem;
   }
@@ -454,9 +454,9 @@ section#hireForm > form {
   font-family: var( --font2 );
 }
 
-section#hireForm > form > h1 {
+section#hireForm > form > h2 {
   font-size: 3.5rem;
-  margin-top: 0;
+  margin: 0;
 }
 
 .float-input {
@@ -636,7 +636,7 @@ section#hireForm > form > button:active {
     max-width: 70rem;
   }
   
-  section#hireForm > form > h1 {
+  section#hireForm > form > h2 {
     grid-area: 1 / span 2;
   }
   
