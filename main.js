@@ -121,7 +121,7 @@ const easingFunctions = {
   easeInOut: [ .42, 0, .58, 1 ],
   easeInExpo: [ 0.95, 0.05, 0.795, 0.035 ],
   easeOutExpo: [ 0.19, 1, 0.22, 1 ],
-  easeInOutExpo: [ .99,.08,.14,.97 ]
+  easeInOutExpo: [ .75,.25,.25,.75 ]
 }
 
 class ValueError extends Error {
