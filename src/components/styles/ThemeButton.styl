@@ -1,0 +1,35 @@
+default-fonts = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+theme-color = #ffd54f
+
+.theme-button
+  background none
+  border solid 2px theme-color
+  border-radius 50px
+  font-family Raleway, default-fonts
+  font-weight 700
+  color #fff
+  padding 0.75rem 1.75rem
+  font-size 1rem
+  transition color 0.3s ease-in-out, background-color 0.3s ease-in-out, padding 0.3s ease-in-out
+  text-transform uppercase
+  cursor pointer
+  position relative
+  &::after
+    content ''
+    position absolute
+    top calc(100% + 4px)
+    background-color rgba(theme-color, 0.8)
+    left 50%
+    transform translateX(-50%)
+    height 1px
+    transition width 0.2s ease-in-out
+    border-radius: 14px
+    width 0
+  &:hover, &:active
+    color #222
+    background-color theme-color
+    padding 0.75rem 2.25rem
+  &:focus
+    outline none
+    &::after
+      width 80%

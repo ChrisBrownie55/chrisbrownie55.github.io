@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:400,700')
+
+default-fonts = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+theme-color = #ffd54f
+
+body
+  margin 0
+  background-color #eee
+  width 100vw
+  height 100vh
+
+header
+  width 100vw
+  height 100vh
+  max-height 45rem
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  background-color #313d4199
+  &::before
+    content ''
+    background-image url('../../../assets/headerBackground.jpg')
+    background-position center
+    background-size cover
+    filter brightness(50%)
+    position fixed
+    z-index -1
+    top -8px
+    left -8px
+    width calc(100vw + 16px)
+    height calc(100vh + 16px)
+    max-height calc(45rem + 16px)
+  .logo
+    margin-bottom 5rem
+  .title
+    font-family Montserrat, default-fonts
+    color white
+    text-align center
+    margin-bottom 2.5rem
+  .theme-button
+    margin-bottom 8rem
+
+section
+  background-color white
+  width calc(100vw - 14rem)
+  padding 4rem 7rem
+  .title
+    font-family Montserrat, default-fonts    
+  & > .title
+    font-size 2.25rem
+    margin-bottom 5rem
+  &#expertise, &#mywork
+    background-color #eee
+  &#hire
+    background-color #222
+  
+  &#about
+    padding-bottom 10rem
+    position relative
+    &::after
+      content ''
+      clip-path polygon(0 0, 100% 100%, 0 100%)
+      width 100%
+      height 9rem
+      bottom 0
+      left 0
+      background-color #eee
+      position absolute
+    .title
+      text-align right
+      padding 0 0.5rem
+      width calc(100% - 2rem)
+    article
+      display flex
+      flex-direction row
+      justify-content center
+      align-items center
+      margin-right auto
+      width 38rem
+      max-width 100%
+      &:not(:first-of-type)
+        flex-direction row-reverse
+        p
+          text-align right
+        @media (max-width: 900px)
+          flex-direction row
+          margin-right auto
+          margin-left 0 !important
+          p
+            text-align left
+      &:nth-of-type(2n)
+        margin-left auto
+        margin-right 0
+      &:not(:last-of-type)
+        margin-bottom 1.75rem
+      img
+        width 9rem
+        height 9rem
+        border-radius 100%
+        margin 0 2rem
+        object-fit cover
+        &#senior1
+          object-position 50% 5%
+        &#senior2
+          object-position 68%
+        &#senior1, &#senior2
+          box-shadow -1px -1px 9px 1px rgba(black, 0.28)
+      p
+        font-family Georgia, default-fonts
+        font-size 1.1rem
+        color #444
+  
+  &#expertise
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    padding-top 0
+    .title
+      padding 0.8rem 1rem
+      border solid 4px #222
+    .subtitle
+      font-family Montserrat, default-fonts
+      font-size 1.85rem
+      margin-bottom 2.5rem      
+    .skills
+      display grid
+      grid-template 1fr 1fr / 1fr 1fr 1fr 1fr
+      grid-gap 1rem
+      width 4 * 9rem
+      height 2 * 9rem
+      .skill
+        width 100%
+        margin 0
+        position relative
+        input[type='checkbox']
+          display none
+        label
+          width 100%
+          height 100%
+          position absolute
+          top 0
+          left 0
+          cursor pointer
+          z-index 2
+        input[type='checkbox']:checked ~ .skill-wrapper 
+          transform rotateY(180deg)
+        .skill-wrapper
+          transform-style preserve-3d
+          will-change transform
+          transition transform 0.3s ease-in-out
+          width calc(100% - 3rem)
+          height calc(100% - 3rem)
+          padding 1.5rem
+          position relative
+          background #222
+        .skill-icon, .skill-caption
+          backface-visibility hidden
+          position absolute
+          top 50%
+          left 50%
+          transform translate(-50%, -50%)
+          z-index 1
+        .skill-icon
+          font-family default-fonts
+          text-align center
+          color #eee
+        .skill-caption
+          display inline-block
+          transform rotateY(180deg) translate(50%, -50%)
+          color white
+          font-size 0.7rem
+          font-family Raleway, default-fonts
+          width calc(100% - 1rem)
+          height calc(100% - 1rem)
+  
+  &#challenge-solution
+    display flex
+    flex-direction row
+    justify-content space-between
+    article
+      display flex
+      flex-direction column
+      width calc(100% - 8rem)
+      &:first-child
+        margin-right 8rem
+      .title
+        color theme-color
+        font-size 1rem
+        text-transform uppercase
+        margin 0 0 1.2rem
+      p
+        font-family Georgia, default-fonts
+        font-size 0.82rem
+        margin unset
