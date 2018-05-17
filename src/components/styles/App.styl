@@ -39,7 +39,7 @@ header
     text-align center
     margin-bottom 2.5rem
   .theme-button
-    margin-bottom 8rem
+    margin-bottom 9rem
 
 section
   background-color white
@@ -194,3 +194,60 @@ section
         font-family Georgia, default-fonts
         font-size 0.82rem
         margin unset
+
+.slides
+  display flex
+  flex-direction row
+  width calc(100% - 8rem)
+  padding 4rem
+  margin 0 auto
+  justify-content center
+  align-items center
+  :global(.flickity-button)
+    padding 0
+    opacity 0.5
+    background-color transparent !important
+    transition opacity 0.25s ease-in-out
+    &:first-of-type
+      left 0
+    &:nth-of-type(2)
+      right 0
+    :global(.flickity-button-icon)
+      left 0
+      top 0
+      width 100%
+      height 100%
+      & > path
+        fill-rule evenodd
+        fill #222
+        transition fill 0.25s ease-in-out
+    &:hover
+      opacity 0.8
+      :global(.flickity-button-icon) > path
+        fill theme-color
+  :global(.flickity-page-dots)
+    bottom 1.5rem
+    :global(.dot)
+      width 1rem
+      height 0.15rem
+      border-radius 8px
+  & > div
+    width 100%
+    & > div
+      width 100%
+      & > div
+        width 100%
+        margin-right 2rem
+        .slide
+          width 100%
+          height calc(30rem + 5vh)
+          display grid
+          grid-template 1fr 1fr / 1fr 1fr
+          grid-gap 1rem
+          & > *
+            grid-area span 1 / span 1
+            width 100%
+            height 100%
+            object-fit cover
+            &:last-child:nth-child(3)
+              grid-column span 2

@@ -39,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules\/[^@glidejs\/glide/dist/]/,
+        exclude: /node_modules\/[^flickity]/,
         use: [
           'style-loader',
           'css-loader'

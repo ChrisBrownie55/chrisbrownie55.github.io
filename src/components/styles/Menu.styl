@@ -2,8 +2,8 @@ default-fonts = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sa
 theme-color = #ffd54f
 
 default-menu-icon()
-  .menu-icon
-    .bar
+  :local(.menu-icon)
+    :local(.bar)
       transform translate(0)
       fill white
       transition fill 0.2s ease-in-out, transform 0.4s cubic-bezier(.45,.98,.38,1.52)
@@ -14,7 +14,7 @@ default-menu-icon()
         transition-delay 0s, 0.1s
     
 animate-menu-icon()
-  .menu-icon .bar
+  :local(.menu-icon) :local(.bar)
     fill #ccc
     &:first-child
       transform translate(5px)
@@ -49,6 +49,7 @@ nav
     top 1rem
     z-index 999
     transition left 0.35s ease-in-out
+    animation fadeIn 0.35s 1s ease-in-out forwards
     .menu-icon
       width 100%
       height 100%
@@ -78,12 +79,23 @@ nav
   input[type='checkbox']
     display none
     &:checked
-      & + .hamburger
+      & + :local(.hamburger)
         left 16rem
         animate-menu-icon()
-        &:hover .menu-icon .bar
+        &:hover :local(.menu-icon) :local(.bar)
           fill #444 !important
-        .menu-icon .bar
+        :local(.menu-icon) :local(.bar)
           fill #222 !important
       & ~ section
         left 0
+
+@keyframes fadeIn
+  0%
+    visibility hidden
+    opacity 0
+  50%
+    visibility visible
+    opacity 0
+  100%
+    visibility visible
+    opacity 1
