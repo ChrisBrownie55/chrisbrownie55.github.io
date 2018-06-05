@@ -12,10 +12,10 @@ import graduationCap from '../../assets/graduation.svg'
 
 import css3 from '../../assets/skills/css3.svg'
 
-function scroll () {}
+const scroll = require('smoothscroll')
 
 const MenuSection = () => {
-  const Link = title => { return {href: `#${title.split(' ').join().toLowerCase()}`, title} }
+  const Link = title => { return {href: `#${style[`${title.split(' ').join('').toLowerCase()}`]}`, title} }
   const Links = (...titles) => titles.map(title => Link(title))
   return <Menu links={Links('About', 'Expertise', 'My Work', 'Hire', 'Contact')}/>
 }
@@ -24,20 +24,28 @@ const HeaderSection = () => (
   <header>
     <Logo className={ style.logo } />
     <h1 className={ style.title }>
-      Hi, my name is Christopher Brown.<br/>
+      Hi, my name is Christopher Brown.
+      <br />
       I engineer websites.
     </h1>
-    <ThemeButton className={ style['theme-button'] } onClick={scroll}>
+    <ThemeButton className={ style['theme-button'] } onClick={ scroll }>
       Yes, I'm available for hire
     </ThemeButton>
+    <p tabIndex='0' className={ style['learn-more'] } onClick={ scroll }>
+      Learn More About What I Do
+      <br />
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 448">
+        <path d="M420.75 202l-185.5 185.25c-6.25 6.25-16.25 6.25-22.5 0l-185.5-185.25c-6.25-6.25-6.25-16.5 0-22.75l41.5-41.25c6.25-6.25 16.25-6.25 22.5 0l132.75 132.75 132.75-132.75c6.25-6.25 16.25-6.25 22.5 0l41.5 41.25c6.25 6.25 6.25 16.5 0 22.75z"></path>
+      </svg>
+    </p>
   </header>
 )
 
 const AboutSection = () => (
   <section id={ style.about }>
-    {/* <h1 className={ style.title }>
+    <h1 className={ style.title }>
       About Me |
-    </h1> */}
+    </h1> 
     <article>
       <img src={ seniorPhoto1 } id={ style.senior1 } />
       <p>
@@ -155,15 +163,44 @@ const HireSection = () => (
   </section>
 )
 
+import facebook from '../../assets/contact/facebook.svg'
+import github from '../../assets/contact/github.svg'
+import email from '../../assets/contact/email.svg'
+import codepen from '../../assets/contact/codepen.svg'
+import linkedin from '../../assets/contact/linkedin.svg'
+import twitter from '../../assets/contact/twitter.svg'
+
 const ContactSection = () => (
   <section id={ style.contact }>
+    <h1 className={ style.title }>Get in contact or see what I'm up to</h1>
+    <div>
+      {
+        [
+          [facebook, 'Facebook', 'https://www.facebook.com/chbchb55'],
+          [github, 'Github', 'https://github.com/ChrisBrownie55'],
+          [email, 'Email', 'mailto:chbphone55@gmail.com'],
+          [codepen, 'Codepen', 'https://codpen.io/chbchb55'],
+          [linkedin, 'LinkedIn', 'https://www.linkedin.com/in/chrisbrownie55'],
+          [twitter, 'Twitter', 'https://twitter.com/ChrisHBrown55']
+        ].map((data, index) =>
+          <a href={ data[2] } key={ index }>
+            <img src={ data[0] } alt={ data[1] } />
+          </a>
+        )
+      }
+    </div>
   </section>
 )
 
-const FooterSection = () => (
-  <footer>
-  </footer>
-)
+const FooterSection = () => {
+  const startYear = 2018
+  const thisYear = new Date().getFullYear()
+  return (
+    <footer>
+      <p>© {startYear !== thisYear ? `${startYear}–${thisYear}` : thisYear} Christopher H. Brown</p>
+    </footer>
+  )
+}
 
 export default () => (
   <main>
@@ -175,5 +212,6 @@ export default () => (
     <WorkSection />
     <HireSection />
     <ContactSection />
+    <FooterSection />
   </main>
 )

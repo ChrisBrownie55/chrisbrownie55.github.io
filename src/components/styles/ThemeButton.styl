@@ -10,10 +10,11 @@ theme-color = #fed766
   color #fff
   padding 0.85rem 1.75rem
   font-size 1rem
-  transition color 0.3s ease-in-out, background-color 0.3s ease-in-out, padding 0.3s ease-in-out
+  transition color 0.35s ease, background-color 0.35s ease, padding 0.35s ease
   text-transform uppercase
   cursor pointer
   position relative
+  will-change padding, color, background-color
   &::after
     content ''
     position absolute
@@ -22,14 +23,14 @@ theme-color = #fed766
     left 50%
     transform translateX(-50%)
     height 1px
-    transition width 0.2s ease-in-out
+    transition width 0.35s ease
     border-radius: 14px
     width 0
   &:hover, &:active
     color #222
     background-color theme-color
-    padding 0.85rem 2.25rem
+    padding 0.85rem 2.75rem
   &:focus
     outline none
-    &::after
+    &:not(:active)::after
       width 80%

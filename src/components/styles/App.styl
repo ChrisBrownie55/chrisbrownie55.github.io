@@ -23,7 +23,7 @@ header
     background-image url('../../../assets/headerBackground.jpg')
     background-position center
     background-size cover
-    filter brightness(50%)
+    filter brightness(50%) blur(4px)
     position fixed
     z-index -1
     top -8px
@@ -38,8 +38,53 @@ header
     color white
     text-align center
     margin-bottom 2.5rem
+    font-size 2.5rem
   .theme-button
     margin-bottom 9rem
+  .learn-more
+    position relative
+    font-size 0.95rem
+    cursor pointer
+    color #ffffffb3
+    font-family Montserrat, default-fonts
+    margin 0 0 -2.6rem
+    will-change color
+    user-select none
+    text-align center
+    white-space nowrap
+    transition color 0.2s linear
+    svg
+      margin-top 0.75rem
+      width 0.95rem
+      height 0.95rem
+      animation arrow-shake 1.75s ease-in-out infinite
+      fill #ffffffb3
+      transition fill 0.2s linear
+    &:hover, &:focus
+      color #fff
+      svg
+        fill #fff
+    &::after
+      content ''
+      position absolute
+      background-color #fff
+      left 50%
+      transform translateX(-50%)
+      height 1px
+      transition width 0.35s ease
+      border-radius: 14px
+      width 0
+    &:focus
+      outline none
+      // text-decoration underline
+      &:not(:active)::after
+        width 100%
+
+@keyframes arrow-shake
+  from, to
+    transform translateY(0)
+  50%
+    transform translateY(0.45rem)
 
 section
   background-color white
@@ -195,6 +240,29 @@ section
         font-size 0.82rem
         margin unset
 
+  &#contact
+    background-color #fff
+    display flex
+    flex-direction column
+    .title
+      text-align center
+    div
+      width 100%
+      display flex
+      flex-direction row
+      a[href]
+        cursor pointer
+        flex 1
+        height calc(1.5rem + 7.5vw)
+        max-height 5rem
+        img
+          width 100%
+          height 100%
+          object-fit contain
+        &:hover
+          path
+            fill theme-color
+
 .slides
   display flex
   flex-direction row
@@ -207,7 +275,7 @@ section
     padding 0
     opacity 0.5
     background-color transparent !important
-    transition opacity 0.25s ease-in-out
+    transition opacity 0.25s ease-in-out, box-shadow 0.25s ease-in-out
     &:first-of-type
       left 0
     &:nth-of-type(2)
@@ -228,9 +296,16 @@ section
   :global(.flickity-page-dots)
     bottom 1.5rem
     :global(.dot)
+      transition width 0.3s 0.05s ease-in-out, height 0.3s 0.05s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out
       width 1rem
       height 0.15rem
       border-radius 8px
+  &:focus :global(.flickity-page-dots) :global(.dot)
+    width 1.5rem
+    height 0.45rem
+    border-radius 12px
+    &:global(.is-selected)
+      box-shadow 1px 1px 12px 1px rgba(0,0,0,0.25)
   & > div
     width 100%
     & > div
@@ -252,3 +327,13 @@ section
             object-fit cover
             &:last-child:nth-child(3)
               grid-column span 2
+
+footer
+  background #666
+  text-align center
+  font-family Helvetica, default-fonts
+  color #fafafa
+  padding 0.6rem 0
+  p
+    margin 0
+    font-size 1.05rem
