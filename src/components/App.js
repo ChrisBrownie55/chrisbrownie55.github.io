@@ -5,6 +5,7 @@ import Menu from './Menu.js'
 import ThemeButton from './ThemeButton.js'
 import Logo from './Logo.js'
 import Carousel from './Carousel.js'
+import FloatInput from './FloatInput.js'
 
 import seniorPhoto1 from '../../assets/senior1.jpg'
 import seniorPhoto2 from '../../assets/senior2.jpg'
@@ -160,6 +161,15 @@ const WorkSection = () => (
 
 const HireSection = () => (
   <section id={ style.hire }>
+    <h1 className={ style.title }>Contact Form</h1>
+    <h2 className={ style.subtitle }>Get in contact about a project</h2>
+    <form acceptCharset='UTF-8' action='https://usebasin.com/f/a8eea5a304e0' encType='multipart/form-data' method='POST'>
+      <FloatInput type='text' id='name' required>Name</FloatInput>
+      <FloatInput type='email' id='email' required>Email</FloatInput>
+      <FloatInput type='tel' id='phone'>Phone</FloatInput>
+      <FloatInput type='url' id='website'>Website</FloatInput>
+      <FloatInput type='textarea' id='message' required>Message</FloatInput>
+    </form>
   </section>
 )
 

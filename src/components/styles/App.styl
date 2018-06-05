@@ -47,7 +47,7 @@ header
     cursor pointer
     color #ffffffb3
     font-family Montserrat, default-fonts
-    margin 0 0 -2.6rem
+    margin 0 0 -2vw
     will-change color
     user-select none
     text-align center
@@ -76,7 +76,6 @@ header
       width 0
     &:focus
       outline none
-      // text-decoration underline
       &:not(:active)::after
         width 100%
 
@@ -97,6 +96,8 @@ section
     margin-bottom 5rem
   &#expertise, &#mywork
     background-color #eee
+  &#mywork > .title
+    text-align right
   &#hire
     background-color #222
   
@@ -267,7 +268,7 @@ section
   display flex
   flex-direction row
   width calc(100% - 8rem)
-  padding 4rem
+  padding 0 4rem 4rem
   margin 0 auto
   justify-content center
   align-items center
