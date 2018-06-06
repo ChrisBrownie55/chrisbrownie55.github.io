@@ -201,17 +201,24 @@ section
           padding 1.5rem
           position relative
           background #222
-        .skill-icon, .skill-caption
+        svg, .skill-caption
           backface-visibility hidden
           position absolute
           top 50%
           left 50%
           transform translate(-50%, -50%)
           z-index 1
-        .skill-icon
+        svg
           font-family default-fonts
           text-align center
           color #eee
+          path
+            stroke-width 0
+            stroke none
+            stroke-dasharray none
+          &:not(.mobx) path
+            fill rgb(254,215,102)
+            fill-rule evenOdd
         .skill-caption
           display inline-block
           transform rotateY(180deg) translate(50%, -50%)
@@ -251,17 +258,21 @@ section
       width 100%
       display flex
       flex-direction row
+      justify-content space-between
       a[href]
         cursor pointer
-        flex 1
+        width calc(1.5rem + 7.5vw)
+        max-width 5rem
         height calc(1.5rem + 7.5vw)
         max-height 5rem
-        img
+        svg
           width 100%
           height 100%
           object-fit contain
-        &:hover
           path
+            transition fill 0.25s ease-in-out
+        &:hover
+          svg path
             fill theme-color
 
 .slides
