@@ -1,5 +1,6 @@
 import style from './styles/ThemeButton.styl'
 
-import React from 'react'
+import { h } from 'preact'
 
-export default props => <button {...props} className={ `${style['theme-button']} ${props.className}` } />
+export default props =>
+  <button {...props} className={ `${style['theme-button']} ${props.className}` } />

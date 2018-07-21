@@ -1,4 +1,4 @@
-import React from 'react'
+import { h } from 'preact'
 import style from './styles/Logo.styl'
 
 export default props => (

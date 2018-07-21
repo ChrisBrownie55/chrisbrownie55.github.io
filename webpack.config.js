@@ -9,7 +9,7 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
+    'react-hot-loader/babel',
     './src/index.js'
   ],
   module: {

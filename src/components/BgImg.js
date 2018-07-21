@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { h } from 'preact'
 import style from './styles/BgImg.styl'
 
 export default props => {
