@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import PreactLazyBlur from 'preact-lazy-blur'
 const scroll = require('smoothscroll')
 
 import style from './styles/App.styl'
@@ -19,8 +20,25 @@ const MenuSection = () => {
   return <Menu links={Links('About', 'Expertise', 'My Work', 'Hire', 'Contact')}/>
 }
 
+import headerBackground from '../../assets/headerBackground.jpg'
+import smallHeaderBackground from '../../assets/smallHeaderBackground.jpg'
 const HeaderSection = () => (
-  <header>
+  <PreactLazyBlur
+    className={style.header}
+    image={ headerBackground }
+    blur={ smallHeaderBackground }
+    style={{
+      objectPosition: 'center',
+      filter: 'brightness(50%) blur(4px)',
+      position: 'fixed',
+      zIndex: '-1',
+      top: '-8px',
+      left: '-8px',
+      width: 'calc(100vw + 16px)',
+      height: 'calc(100vw + 16px)',
+      maxHeight: 'calc(45rem + 16px)'
+    }}
+  >
     <Logo className={ style.logo } />
     <h1 className={ style.title }>
       Hi, my name is Christopher Brown.
@@ -37,7 +55,7 @@ const HeaderSection = () => (
         <path d="M420.75 202l-185.5 185.25c-6.25 6.25-16.25 6.25-22.5 0l-185.5-185.25c-6.25-6.25-6.25-16.5 0-22.75l41.5-41.25c6.25-6.25 16.25-6.25 22.5 0l132.75 132.75 132.75-132.75c6.25-6.25 16.25-6.25 22.5 0l41.5 41.25c6.25 6.25 6.25 16.5 0 22.75z"></path>
       </svg>
     </p>
-  </header>
+  </PreactLazyBlur>
 )
 
 const AboutSection = () => (
@@ -60,7 +78,7 @@ const AboutSection = () => (
     <article>
       <img src={ graduationCap } />
       <p>
-        I am also a student at Idaho Arts Charter school, I will be graduating from this school on May 29, 2018. After that I plan to work fulltime in the Front-End Web Development field.
+        I am also a graduate of Idaho Arts Charter school, I am now attending <a href='https://boisecodeworks.com/'>Boise CodeWorks</a>. After that I plan to work fulltime in the Front-End Web Development field.
       </p>
     </article>
   </section>

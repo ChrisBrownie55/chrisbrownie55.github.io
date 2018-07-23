@@ -17,7 +17,7 @@ main
   position relative
   overflow hidden
 
-header
+.header
   width 100vw
   height 100vh
   max-height 45rem
@@ -26,11 +26,7 @@ header
   justify-content center
   align-items center
   background-color #313d4199
-  &::before
-    content ''
-    background-image url('../../../assets/headerBackground.jpg')
-    background-position center
-    background-size cover
+  & > :global(.image), & > :global(.blur)
     filter brightness(50%) blur(4px)
     position fixed
     z-index -1
@@ -217,6 +213,15 @@ section
         font-family Georgia, default-fonts
         font-size 1.1rem
         color #444
+        a[href]
+          font-weight bold
+          font-family default-fonts
+          font-size 1.05rem
+          white-space nowrap
+          color #1f77da
+          text-decoration none
+          &:hover
+            text-decoration underline
 
       @media (max-width: 800px)
         &, &:nth-child(n)
