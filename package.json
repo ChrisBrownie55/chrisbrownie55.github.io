@@ -12,9 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@glidejs/glide": "^3.2.0",
+    "@glidejs/glide": "^3.2.1",
     "flickity": "^2.1.2",
     "preact": "^8.2.9",
+    "preact-lazy-blur": "0.0.1",
     "smoothscroll": "^0.4.0",
     "yarn": "^1.7.0"
   },
@@ -31,9 +32,9 @@
     "style-loader": "^0.21.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "webpack": "^4.16.1",
+    "webpack": "^4.16.2",
     "webpack-cli": "^2.1.5",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.5"
   },
   "babel": {
     "presets": [
