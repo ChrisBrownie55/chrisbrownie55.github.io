@@ -20,8 +20,18 @@ const MenuSection = () => {
   return <Menu links={Links('About', 'Expertise', 'My Work', 'Hire', 'Contact')}/>
 }
 
+import headerBackgroudURL from '../../assets/headerBackground.jpg'
+let backgroundIsLoaded = false
+const image = new Image()
+image.onload = () => backgroundIsLoaded = true
+image.src = headerBackgroudURL
+
 const HeaderSection = () => (
-  <header className={ style.header }>
+  <header className={ style.header } style={
+    backgroundIsLoaded ? {
+      backgroundImage: `url(${image.src})`
+    } : {}
+  }>
     <Logo className={ style.logo } />
     <h1 className={ style.title }>
       Hi, my name is Christopher Brown.
