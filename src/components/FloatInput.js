@@ -4,7 +4,7 @@ import style from './styles/FloatInput.styl'
 class FloatInput extends Component {
   constructor(props) {
     super(props)
-    this.className = `float-input ${this.props.className} ${this.props.type === 'textarea' ? 'float-textarea' : ''}`
+    this.className = `float-input ${this.props.className || ''} ${this.props.type === 'textarea' ? 'float-textarea' : ''}`
   }
 
   handleInput(event) {

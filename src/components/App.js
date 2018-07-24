@@ -20,25 +20,8 @@ const MenuSection = () => {
   return <Menu links={Links('About', 'Expertise', 'My Work', 'Hire', 'Contact')}/>
 }
 
-import headerBackground from '../../assets/headerBackground.jpg'
-import smallHeaderBackground from '../../assets/smallHeaderBackground.jpg'
 const HeaderSection = () => (
-  <PreactLazyBlur
-    className={style.header}
-    image={ headerBackground }
-    blur={ smallHeaderBackground }
-    style={{
-      objectPosition: 'center',
-      filter: 'brightness(50%) blur(4px)',
-      position: 'fixed',
-      zIndex: '-1',
-      top: '-8px',
-      left: '-8px',
-      width: 'calc(100vw + 16px)',
-      height: 'calc(100vw + 16px)',
-      maxHeight: 'calc(45rem + 16px)'
-    }}
-  >
+  <header className={ style.header }>
     <Logo className={ style.logo } />
     <h1 className={ style.title }>
       Hi, my name is Christopher Brown.
@@ -55,32 +38,34 @@ const HeaderSection = () => (
         <path d="M420.75 202l-185.5 185.25c-6.25 6.25-16.25 6.25-22.5 0l-185.5-185.25c-6.25-6.25-6.25-16.5 0-22.75l41.5-41.25c6.25-6.25 16.25-6.25 22.5 0l132.75 132.75 132.75-132.75c6.25-6.25 16.25-6.25 22.5 0l41.5 41.25c6.25 6.25 6.25 16.5 0 22.75z"></path>
       </svg>
     </p>
-  </PreactLazyBlur>
+  </header>
 )
 
 const AboutSection = () => (
   <section id={ style.about }>
     <h1 className={ style.title }>
       About Me
-    </h1> 
-    <article>
-      <img src={ seniorPhoto1 } id={ style.senior1 } />
-      <p>
-        For the past couple years, I have been working as a Web Developer in educational, professional, and hobbyist capacities. Over these years, in order to serve customers better, I have honed my skills as a Front-End Web Developer.
-      </p>
-    </article>
-    <article>
-      <img src={ seniorPhoto2 } id={ style.senior2 } />
-      <p>
-        During my time as a Front-End Web Developer, I have designed and developed many different projects that constitute a variety of skills that are useful to developing websites more efficiently and effectively.
-      </p>
-    </article>
-    <article>
-      <img src={ graduationCap } />
-      <p>
-        I am also a graduate of Idaho Arts Charter school, I am now attending <a href='https://boisecodeworks.com/'>Boise CodeWorks</a>. After that I plan to work fulltime in the Front-End Web Development field.
-      </p>
-    </article>
+    </h1>
+    <div>
+      <article>
+        <img src={ seniorPhoto1 } id={ style.senior1 } />
+        <p>
+          For the past couple years, I have been working as a Web Developer in educational, professional, and hobbyist capacities. Over these years, in order to serve customers better, I have honed my skills as a Front-End Web Developer.
+        </p>
+      </article>
+      <article>
+        <img src={ seniorPhoto2 } id={ style.senior2 } />
+        <p>
+          During my time as a Front-End Web Developer, I have designed and developed many different projects that constitute a variety of skills that are useful to developing websites more efficiently and effectively.
+        </p>
+      </article>
+      <article>
+        <img src={ graduationCap } />
+        <p>
+          I am also a graduate of Idaho Arts Charter school, I am now attending <a href='https://boisecodeworks.com/'>Boise CodeWorks</a>. After that I plan to work fulltime in the Front-End Web Development field.
+        </p>
+      </article>
+    </div>
   </section>
 )
 
