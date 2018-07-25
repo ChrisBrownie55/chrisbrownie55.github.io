@@ -1,5 +1,4 @@
 import { h } from 'preact'
-import PreactLazyBlur from 'preact-lazy-blur'
 const scroll = require('smoothscroll')
 
 import style from './styles/App.styl'
@@ -22,14 +21,19 @@ const MenuSection = () => {
 
 import headerBackgroudURL from '../../assets/headerBackground.jpg'
 let backgroundIsLoaded = false
-const image = new Image()
-image.onload = () => backgroundIsLoaded = true
-image.src = headerBackgroudURL
+document.addEventListener('DOMContentLoaded', () => {
+  const image = new Image()
+  image.onload = () => {
+    backgroundIsLoaded = true
+    console.log('background image loaded')
+  }
+  image.src = headerBackgroudURL
+})
 
 const HeaderSection = () => (
   <header className={ style.header } style={
     backgroundIsLoaded ? {
-      backgroundImage: `url(${image.src})`
+      backgroundImage: `url(${headerBackgroundURL})`
     } : {}
   }>
     <Logo className={ style.logo } />

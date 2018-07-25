@@ -153,6 +153,10 @@ section
         transition width 0.35s ease
         &:hover
           width 23rem
+        @media (max-width: 450px)
+          width 90%
+          &:hover
+            width 100%
       @media (max-width: 800px)
         grid-template-columns 1fr
         grid-template-rows 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem
@@ -236,9 +240,6 @@ section
           width calc(80% + 2vw)
           flex-direction column !important
           margin 0 auto 2.25rem !important
-        img
-          border-radius 2px
-          border-radius -1px -1px 9px 1px rgba(0,0,0,0.18)
         p
           text-align center !important
   
@@ -415,6 +416,7 @@ section
   display flex
   flex-direction row
   width calc(100% - 8rem)
+  max-width 75rem
   padding 0 4rem 4rem
   margin 0 auto
   justify-content center
@@ -478,8 +480,11 @@ section
           @media (max-width: 800px)
             display flex
             flex-direction column
+            height 45rem
             .slideItem:not(:last-child)
               margin-bottom 1rem
+          @media (min-width: 1024px)
+            height 45rem
           .slideItem
             grid-column span 1
             grid-row span 2

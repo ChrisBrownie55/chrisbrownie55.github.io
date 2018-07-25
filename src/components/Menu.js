@@ -3,7 +3,10 @@ import style from './styles/Menu.styl'
 
 export default props => {
   const { links } = props
-
+  document.addEventListener('DOMContentLoaded', () => {
+    const menu = document.querySelector('nav')
+    Array.from(menu.children).forEach(child => child.style.visibility = '')
+  })
   return (
     <nav>
       <input type='checkbox' id='menu-checkbox' style={{ visibility: 'hidden' }} />

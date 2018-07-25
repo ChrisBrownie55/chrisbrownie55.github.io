@@ -26,12 +26,14 @@ class Carousel extends Component {
   }
 
   render() {
-    const className = this.props.className ? ` ${this.props.className}` : ''
+    const className = this.props.className || ''
     const children = Array.isArray(this.props.children) ? this.props.children : [this.props.children]
     return (
-      <div ref={ ref => this.initializeFlickity(ref) } className={ `main-carousel${className}` }>
-        {children.map((el, i) => 
-          <div key={i} className='carousel-cell'>{ el }</div>
+      <div ref={ ref => this.initializeFlickity(ref) } className={ `main-carousel ${className}` }>
+        {children.map((child, i) => 
+          <div key={i} className='carousel-cell'>
+            { child }
+          </div>
         )}
       </div>
     )
