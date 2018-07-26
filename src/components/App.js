@@ -33,28 +33,19 @@ const MenuSection = () => {
   );
 };
 
-import headerBackgroudURL from "../../assets/headerBackground.jpg";
-let backgroundIsLoaded = false;
+import headerBackgroudURL from "../../assets/headerBackground-min.jpg";
+let headerRef;
 document.addEventListener("DOMContentLoaded", () => {
   const image = new Image();
   image.onload = () => {
-    backgroundIsLoaded = true;
+    headerRef.style.backgroundImage = `url(${image.src})`;
     console.log("background image loaded");
   };
   image.src = headerBackgroudURL;
 });
 
 const HeaderSection = () => (
-  <header
-    className={style.header}
-    style={
-      backgroundIsLoaded
-        ? {
-            backgroundImage: `url(${headerBackgroundURL})`
-          }
-        : {}
-    }
-  >
+  <header className={style.header} ref={ref => (headerRef = ref)}>
     <Logo className={style.logo} />
     <h1 className={style.title}>
       Hi, my name is Christopher Brown.
