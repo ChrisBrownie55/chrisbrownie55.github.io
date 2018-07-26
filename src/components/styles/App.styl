@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Questrial:400,700')
 
 default-fonts = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
@@ -571,3 +572,572 @@ body::-webkit-scrollbar-thumb
   background-color #7F7F7F
   outline 1px solid #7F7F7F
   border-radius: 8px;
+=======
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Questrial:400,700')
+
+default-fonts = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+theme-color = #fed766
+
+html
+  @media (max-width: 800px)
+    font-size 14px
+
+body
+  margin 0
+  background-color #eee
+  width 100%
+  height 100vh
+
+main
+  position relative
+  overflow hidden
+
+.header
+  width 100vw
+  height 100vh
+  max-height 45rem
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  background-color #313d4199
+  background rgb(105,77,89)
+  background linear-gradient(145deg, rgba(105,77,89,1) 0%, rgba(79,103,139,1) 72%)
+  background-image url('../../../assets/headerBackground.jpg')
+  background-size cover
+  background-position center
+  background-repeat no-repeat
+  & > :global(.image), & > :global(.blur)
+    @media (max-width: 800px)
+      position absolute !important
+  .logo
+    margin-bottom 5rem
+  .title
+    font-family Montserrat, default-fonts
+    color white
+    text-align center
+    margin-bottom 2.5rem
+    font-size 2.5rem
+  .theme-button
+    margin-bottom 9rem
+  .learn-more
+    position relative
+    font-size 0.95rem
+    cursor pointer
+    color #ffffffb3
+    font-family Questrial, default-fonts
+    margin 0 0 -2vw
+    will-change color
+    user-select none
+    text-align center
+    white-space nowrap
+    transition color 0.2s linear
+    svg
+      margin-top 0.75rem
+      width 0.95rem
+      height 0.95rem
+      animation arrow-shake 1.75s ease-in-out infinite
+      fill #ffffffb3
+      transition fill 0.2s linear
+    &:hover, &:focus
+      color #fff
+      svg
+        fill #fff
+    &::after
+      content ''
+      position absolute
+      background-color #fff
+      left 50%
+      transform translateX(-50%)
+      height 1px
+      transition width 0.35s ease
+      border-radius: 14px
+      width 0
+    &:focus
+      outline none
+      &:not(:active)::after
+        width 100%
+
+@keyframes arrow-shake
+  from, to
+    transform translateY(0)
+  50%
+    transform translateY(0.45rem)
+
+section
+  background-color white
+  width calc(98vw - 14rem)
+  padding 4.5rem calc(7rem + 1vw)
+  @media (max-width: 800px)
+    width calc(99vw - 8rem)
+    padding 4.5rem calc(4rem + 0.5vw)
+  .title
+    font-family Montserrat, default-fonts
+  & > .title
+    font-size 2.25rem
+    margin-bottom 5rem
+    @media (max-width: 800px)
+      text-align center !important
+  &#expertise, &#mywork
+    background-color #eee
+  &#mywork > .title
+    text-align right
+  &#hire
+    background-color #222
+    color white
+    & > .title
+      margin-bottom 0
+    & > .subtitle
+      margin-bottom 5rem
+      margin-top 0
+      font-family Montserrat, default-fonts
+      font-weight bold
+      &::before
+        content ''
+        width 3rem
+        height 3px
+        background white
+        border-radius 4px
+        display inline-block
+        vertical-align middle
+        margin-right 1rem
+      @media (max-width: 800px)
+        text-align center
+        margin-top 0.5rem
+        &::before
+          width 0
+          margin 0
+          border none
+    form
+      display grid
+      height 28rem
+      grid-row-gap 2.5rem
+      grid-column-gap 6rem
+      grid-template-columns 1fr 1fr
+      grid-template-rows 0.5fr 0.5fr 1.5fr 6rem
+      :global(.float-input)
+        grid-area span 1
+      :global(.float-textarea)
+        grid-area span 1 / span 2
+      button
+        font-size 1.1rem
+        width 21rem
+        height 4rem
+        margin auto auto 0
+        grid-area span 1 / span 2
+        transition width 0.35s ease
+        &:hover
+          width 23rem
+        @media (max-width: 450px)
+          width 90%
+          &:hover
+            width 100%
+      @media (max-width: 800px)
+        grid-template-columns 1fr
+        grid-template-rows 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem
+        height 34rem
+        & > *
+          grid-area span 1 / span 1 !important
+
+  &#about
+    padding-bottom 10rem
+    position relative
+    &::after
+      content ''
+      clip-path polygon(0 0, 100% 100%, 0 100%)
+      width 100%
+      height 9rem
+      bottom -1px
+      left 0
+      background-color #eee
+      position absolute
+    .title
+      text-align center
+    & > div
+      @media (min-width: 801px)
+        display flex
+        flex-direction column
+        width 100%
+        max-width 55rem
+        min-width 35rem
+        margin 0 auto
+    article
+      display flex
+      flex-direction row
+      justify-content center
+      align-items center
+      margin-right auto
+      width 38rem
+      max-width 100%
+      &:nth-of-type(2)
+        flex-direction row-reverse
+        p
+          text-align right
+        @media (max-width: 900px)
+          flex-direction row
+          margin-right auto
+          margin-left 0 !important
+          p
+            text-align left
+      &:nth-of-type(2n)
+        margin-left auto
+        margin-right 0
+      &:not(:last-of-type)
+        margin-bottom 1.75rem
+      img
+        width 9rem
+        min-width 9rem
+        height 9rem
+        min-height 9rem
+        border-radius 50%
+        margin 0 2rem
+        object-fit cover
+        &#senior1
+          object-position 50% 5%
+        &#senior2
+          object-position 68%
+        &#senior1, &#senior2
+          box-shadow -1px -1px 9px 1px rgba(black, 0.28)
+      p
+        font-family Georgia, default-fonts
+        font-size 1.1rem
+        color #444
+        a[href]
+          font-weight bold
+          font-family default-fonts
+          font-size 1.05rem
+          white-space nowrap
+          color #1f77da
+          text-decoration none
+          &:hover
+            text-decoration underline
+
+      @media (max-width: 800px)
+        &, &:nth-child(n)
+          width calc(80% + 2vw)
+          flex-direction column !important
+          margin 0 auto 2.25rem !important
+        p
+          text-align center !important
+
+  &#expertise
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    padding-top 0
+    .title
+      padding 0.8rem 1rem
+      border solid 4px #222
+    .subtitle
+      font-family Montserrat, default-fonts
+      font-size 1.85rem
+      margin-bottom 2.5rem      
+    .skills
+      display grid
+      grid-template 1fr 1fr / 1fr 1fr 1fr 1fr
+      grid-gap 1rem
+      width 4 * 9rem
+      height 2 * 9rem
+      @media (max-width: 800px)
+        grid-template 1fr 1fr 1fr / 1fr 1fr 1fr
+        height 27rem
+        width 27rem
+      @media (max-width: 500px)
+        grid-template 1fr 1fr 1fr 1fr / 1fr 1fr
+        height 36rem
+        width 18rem
+      .skill
+        width 100%
+        margin 0
+        position relative
+        input[type='checkbox']
+          display none
+        label
+          width 100%
+          height 100%
+          position absolute
+          top 0
+          left 0
+          cursor pointer
+          z-index 2
+        input[type='checkbox']:checked ~ .skill-wrapper 
+          transform rotateY(180deg)
+        .skill-wrapper
+          transform-style preserve-3d
+          will-change transform
+          transition transform 0.35s ease-in-out
+          width calc(100% - 3rem)
+          height calc(100% - 3rem)
+          padding 1.5rem
+          position relative
+          background #2a2a2a
+          border-radius 0.15rem
+        svg, .skill-caption
+          backface-visibility hidden
+          position absolute
+          top 50%
+          left 50%
+          transform translate(-50%, -50%)
+          z-index 1
+        svg
+          font-family default-fonts
+          text-align center
+          color #eee
+          path
+            stroke-width 0
+            stroke none
+            stroke-dasharray none
+          &:not(.mobx) path
+            fill rgb(254,215,102)
+            fill-rule evenOdd
+        .skill-caption
+          display inline-block
+          transform rotateY(180deg) translate(50%, -50%)
+          color white
+          font-size 3rem
+          font-family Roboto, default-fonts
+          font-weight bold
+          width calc(100% - 1rem)
+          padding-right 1rem
+          text-align center
+          sup
+            font-size 1rem
+            position absolute
+            transform translate(0.25rem, -0.125rem)
+
+  
+  &#challenge-solution
+    display flex
+    flex-direction row
+    justify-content space-between
+    padding-top 5rem
+    padding-bottom 5rem
+    @media (max-width: 800px)
+      --side-padding 2rem
+      padding-left var(--side-padding)
+      padding-right var(--side-padding)
+      width calc(100vw - calc(var(--side-padding) * 2))
+      flex-direction column
+      justify-content center
+      align-items center
+    article
+      display flex
+      flex-direction column
+      width calc(100% - 8rem)
+      @media (max-width: 800px)
+        font-size 1.35rem
+      &:first-child
+        margin-right 8rem
+        @media (max-width: 800px)
+          margin-right 0
+          margin-bottom 3.5rem
+      .title
+        color theme-color
+        font-size 1.125em
+        text-transform uppercase
+        margin 0 0 1.2rem
+        @media (max-width: 800px)
+          text-align center
+          font-size 1.4em
+      p
+        font-family Georgia, default-fonts
+        font-size 0.95em
+        margin unset
+
+  &#contact
+    background-color #fff
+    display flex
+    flex-direction column
+    @media (max-width: 800px)
+      width calc(100% - calc(5vw + 1rem))
+      padding-left calc(2.5vw + 0.5rem)
+      padding-right calc(2.5vw + 0.5rem)
+    .title
+      text-align center
+    div
+      width 100%
+      display flex
+      flex-direction row
+      justify-content space-between
+      a[href]
+        cursor pointer
+        width calc(1.5rem + 7.5vw)
+        max-width 5rem
+        height calc(1.5rem + 7.5vw)
+        max-height 5rem
+        &:focus
+          outline none
+          svg path
+            stroke theme-color
+            stroke-width 2px
+        svg
+          width 100%
+          height 100%
+          object-fit contain
+          path
+            stroke-linecap rounded
+            transition fill 0.25s ease-in-out, stroke-width 0.25s ease-in-out
+        &:hover
+          svg path
+            fill theme-color
+
+
+#mywork
+  @media (max-width: 800px)
+    --side-padding calc(5vw * 1.1)
+    padding-left var(--side-padding)
+    padding-right var(--side-padding)
+    width calc(100vw - calc(var(--side-padding) * 2))
+.slides
+  display flex
+  flex-direction row
+  width calc(100% - 8rem)
+  max-width 75rem
+  padding 0 4rem 4rem
+  margin 0 auto
+  justify-content center
+  align-items center
+  @media (max-width: 800px)
+    padding-left 0
+    padding-right 0
+    width 100%
+  :global(.flickity-button)
+    padding 0
+    opacity 0.5
+    background-color transparent !important
+    transition opacity 0.25s ease-in-out, box-shadow 0.25s ease-in-out
+    @media (max-width: 800px)
+      display none
+    &:first-of-type
+      left 0
+    &:nth-of-type(2)
+      right 0
+    :global(.flickity-button-icon)
+      left 0
+      top 0
+      width 100%
+      height 100%
+      & > path
+        fill-rule evenodd
+        fill #222
+        transition fill 0.25s ease-in-out
+    &:hover
+      opacity 0.8
+      :global(.flickity-button-icon) > path
+        fill theme-color
+  :global(.flickity-page-dots)
+    bottom 1.5rem
+    :global(.dot)
+      transition width 0.3s 0.05s ease-in-out, height 0.3s 0.05s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out
+      width 1rem
+      height 0.15rem
+      border-radius 8px
+  &:focus :global(.flickity-page-dots) :global(.dot)
+    width 1.5rem
+    height 0.45rem
+    border-radius 12px
+    &:global(.is-selected)
+      box-shadow 1px 1px 12px 1px rgba(0,0,0,0.25)
+  & > div
+    width 100%
+    & > div
+      width 100%
+      & > div
+        width 100%
+        margin-right 2rem
+        .slide
+          width 100%
+          height calc(30rem + 5vh)
+          display grid
+          grid-template repeat(5, 1fr) / 1fr 1fr
+          grid-gap 1rem
+          padding 0
+          background-color transparent
+          @media (max-width: 800px)
+            display flex
+            flex-direction column
+            height 45rem
+            .slideItem:not(:last-child)
+              margin-bottom 1rem
+          @media (min-width: 1024px)
+            height 45rem
+          .slideItem
+            grid-column span 1
+            grid-row span 2
+            width 100%
+            height 100%
+            border-radius 4px
+            overflow hidden
+            position relative
+            .slideImage
+              width 100%
+              height 100%
+              object-fit cover
+              transition filter 0.2s
+            .slideContent
+              opacity 0
+              background-color rgba(black, 0.5)
+              position absolute
+              --slide-padding 1rem
+              width calc(100% - calc(var(--slide-padding) * 2))
+              height calc(100% - calc(var(--slide-padding) * 2))
+              padding var(--slide-padding)
+              left 0
+              top 0
+              display flex
+              flex-direction column
+              justify-content space-between
+              transition opacity 0.25s
+              p
+                font-family default-fonts
+                color #fafafa
+                margin 0
+                max-width 35rem
+
+              a
+                font-family default-fonts
+                text-decoration none
+                color #fafafa
+                border solid 1px theme-color
+                border-radius 2px
+                padding 0.35rem 0.5rem
+                width fit-content
+                &:hover
+                  color #222
+                  background-color theme-color
+                  transition background-color 0.175s, color 0.175s
+            &:last-child
+              grid-column span 2
+              grid-row span 3
+              .slideContent
+                --slide-padding 1.5rem
+            &:hover
+              .slideImage
+                filter brightness(50%)
+              .slideContent
+                opacity 1
+
+
+footer
+  background #666
+  text-align center
+  font-family Helvetica, default-fonts
+  color #fafafa
+  padding 0.6rem 0
+  p
+    margin 0
+    font-size 1.05rem
+
+
+body::-webkit-scrollbar
+  width 0.75em
+
+body::-webkit-scrollbar-track
+  -webkit-box-shadow none
+  background none
+
+body::-webkit-scrollbar-thumb
+  background-color #7F7F7F
+  outline 1px solid #7F7F7F
+>>>>>>> b771d5e1f0337253bc1cf50045b949c048453145
