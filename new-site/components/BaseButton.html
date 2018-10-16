@@ -1,7 +1,4 @@
-<template>
-  <button class='button'>
-    <slot></slot>
-  </button>
+<template id='base-button-template'>
   <style>
     .button {
       position: relative;
@@ -60,11 +57,17 @@
 </template>
 
 <script>
-  class BaseButton {
-    connectedCallback() {
+  const template = document.currentScript.ownerDocument.getElementById('base-button-template')
+  class BaseButton extends HTMLButtonElement {
+    constructor() {
+      super()
+    }
 
+    connectedCallback() {
+      const shadowRoot = this.attachShadow({ mode: 'open' })
+      shadowRoot.appendChild(template.content.cloneNode(true))
     }
   }
 
-  customElements.define('base-button', BaseButton)
+  customElements.define('base-button', BaseButton, { extends: 'button' })
 </script>
