@@ -15,30 +15,27 @@
     width: calc(99vw - 8rem);
     padding: 4.5rem calc(4rem +0.5vw);
   }
-  section#hire > .subtitle {
+  section.hire > .subtitle {
     text-align: center;
     margin-top: 0.5rem;
   }
-  section#hire > .subtitle::before {
+  section.hire > .subtitle::before {
     width: 0;
     margin: 0;
     border: none;
   }
-  section#hire form {
+  section.hire form {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     -ms-grid-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem;
         grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem;
     height: 34rem;
   }
-  section#hire form > * {
+  section.hire form > * {
     grid-area: span 1 / span 1 !important;
   }
-  section#challenge-solution {
+  section.challenge-solution {
     --side-padding: 2rem;
-    padding-left: var(--side-padding);
-    padding-right: var(--side-padding);
-    width: calc(100vw - calc(var(--side-padding) * 2));
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -49,18 +46,21 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    width: calc(100vw - calc(var(--side-padding) * 2));
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
   }
-  section#challenge-solution article {
+  section.challenge-solution article {
     font-size: 1.35rem;
   }
-  section#challenge-solution article:first-child {
+  section.challenge-solution article:first-child {
     margin-bottom: 3.5rem;
   }
-  section#challenge-solution article .title {
+  section.challenge-solution article .title {
     text-align: center;
     font-size: 1.4em;
   }
-  section#contact {
+  section.contact {
     width: calc(100% - calc(5vw +1rem));
     padding-left: calc(2.5vw +0.5rem);
     padding-right: calc(2.5vw +0.5rem);
@@ -68,33 +68,33 @@
   section > .title {
     text-align: center !important;
   }
-  section#about article {
-    width: calc(80% +2vw);
+  section.about article {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
         -ms-flex-direction: column !important;
             flex-direction: column !important;
+    width: calc(80% +2vw);
     margin: 0 auto 2.25rem !important;
   }
-  section#about article:nth-child(n) {
-    width: calc(80% +2vw);
+  section.about article:nth-child(n) {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
         -ms-flex-direction: column !important;
             flex-direction: column !important;
+    width: calc(80% +2vw);
     margin: 0 auto 2.25rem !important;
   }
-  section#about article p {
+  section.about article p {
     text-align: center !important;
   }
-  section#expertise .skills {
+  section.expertise .skills {
     -ms-grid-rows: 1fr 1fr 1fr;
     -ms-grid-columns: 1fr 1fr 1fr;
         grid-template: 1fr 1fr 1fr/1fr 1fr 1fr;
     height: 27rem;
     width: 27rem;
   }
-  #mywork {
+  .mywork {
     --side-padding: calc(5vw * 1.1);
     padding-left: var(--side-padding);
     padding-right: var(--side-padding);
@@ -130,11 +130,11 @@
 }
 
 body {
-  margin: 0;
-  background-color: #eee;
   width: 100%;
   height: 100vh;
+  margin: 0;
   overflow-x: hidden;
+  background-color: #eee;
 }
 
 main {
@@ -143,9 +143,6 @@ main {
 }
 
 .header {
-  width: 100vw;
-  height: 100vh;
-  max-height: 45rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,6 +156,9 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100vw;
+  height: 100vh;
+  max-height: 45rem;
   background-color: rgba(49, 61, 65, 0.6);
   background: #694d59;
   background: linear-gradient(145deg, #694d59 0, #4f678b 72%);
@@ -180,7 +180,7 @@ main {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.header .theme-button {
+.header__hire-button {
   margin-bottom: 9rem;
 }
 
@@ -236,7 +236,7 @@ main {
   width: 100%;
 }
 
-.header .learn-more::after {
+.header__learn-more::after {
   content: "";
   position: absolute;
   background-color: #fff;
@@ -251,16 +251,16 @@ main {
 }
 
 section {
-  background-color: #fff;
   width: calc(98vw - 14rem);
   padding: 4.5rem calc(7rem +1vw);
+  background-color: #fff;
 }
 
-section .title {
+section__title {
   font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
 }
 
-section#expertise {
+section.expertise {
   background-color: #eee;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,18 +278,18 @@ section#expertise {
   padding-top: 0;
 }
 
-section#expertise .title {
+section.expertise .title {
   padding: 0.8rem 1rem;
   border: solid 4px #222;
 }
 
-section#expertise .subtitle {
+section.expertise .subtitle {
   font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
   font-size: 1.85rem;
   margin-bottom: 2.5rem;
 }
 
-section#expertise .skills {
+section.expertise .skills {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr 1fr;
@@ -300,22 +300,22 @@ section#expertise .skills {
   height: 18rem;
 }
 
-section#expertise .skills .skill {
+section.expertise .skills .skill {
   width: 100%;
   margin: 0;
   position: relative;
 }
 
-section#expertise .skills .skill input[type="checkbox"] {
+section.expertise .skills .skill input[type="checkbox"] {
   display: none;
 }
 
-section#expertise .skills .skill input[type="checkbox"]:checked ~ .skill-wrapper {
+section.expertise .skills .skill input[type="checkbox"]:checked ~ .skill-wrapper {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
-section#expertise .skills .skill label {
+section.expertise .skills .skill label {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -325,7 +325,7 @@ section#expertise .skills .skill label {
   z-index: 2;
 }
 
-section#expertise .skills .skill .skill-wrapper {
+section.expertise .skills .skill .skill-wrapper {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   will-change: transform;
@@ -341,7 +341,7 @@ section#expertise .skills .skill .skill-wrapper {
   border-radius: 0.15rem;
 }
 
-section#expertise .skills .skill svg {
+section.expertise .skills .skill svg {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   position: absolute;
@@ -355,18 +355,18 @@ section#expertise .skills .skill svg {
   color: #eee;
 }
 
-section#expertise .skills .skill svg path {
+section.expertise .skills .skill svg path {
   stroke-width: 0;
   stroke: none;
   stroke-dasharray: none;
 }
 
-section#expertise .skills .skill svg:not(.mobx) path {
+section.expertise .skills .skill svg:not(.mobx) path {
   fill: var(--theme-primary);
   fill-rule: evenOdd;
 }
 
-section#expertise .skills .skill .skill-caption {
+section.expertise .skills .skill .skill-caption {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   position: absolute;
@@ -387,38 +387,38 @@ section#expertise .skills .skill .skill-caption {
   text-align: center;
 }
 
-section#expertise .skills .skill .skill-caption sup {
+section.expertise .skills .skill .skill-caption sup {
   font-size: 1rem;
   position: absolute;
   -webkit-transform: translate(0.25rem, -0.125rem);
           transform: translate(0.25rem, -0.125rem);
 }
 
-section#mywork {
+section.mywork {
   background-color: #eee;
 }
 
-section#mywork > .title {
+section.mywork > .title {
   text-align: right;
 }
 
-section#hire {
+section.hire {
   background-color: #222;
   color: #fff;
 }
 
-section#hire > .title {
+section.hire > .title {
   margin-bottom: 0;
 }
 
-section#hire > .subtitle {
+section.hire > .subtitle {
   margin-bottom: 5rem;
   margin-top: 0;
   font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
   font-weight: bold;
 }
 
-section#hire > .subtitle::before {
+section.hire > .subtitle::before {
   content: "";
   width: 3rem;
   height: 3px;
@@ -429,7 +429,7 @@ section#hire > .subtitle::before {
   margin-right: 1rem;
 }
 
-section#hire form {
+section.hire form {
   display: -ms-grid;
   display: grid;
   height: 28rem;
@@ -443,15 +443,15 @@ section#hire form {
   margin: 0 auto;
 }
 
-section#hire form .float-input {
+section.hire form .float-input {
   grid-area: span 1;
 }
 
-section#hire form .float-textarea {
+section.hire form .float-textarea {
   grid-area: span 1 / span 2;
 }
 
-section#hire form button {
+section.hire form button {
   font-size: 1.1rem;
   width: 21rem;
   height: 4rem;
@@ -461,7 +461,7 @@ section#hire form button {
   transition: width 0.35s ease;
 }
 
-section#hire form button:hover {
+section.hire form button:hover {
   width: 23rem;
 }
 
