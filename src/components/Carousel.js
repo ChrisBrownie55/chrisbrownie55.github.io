@@ -10,13 +10,13 @@ class Carousel extends Component {
 
   initializeFlickity(ref) {
     const options = Object.assign({
-        prevNextButtons: true,
-        pageDots: false,
-        autoPlay: 5000,
-        parallax: null
-      }, this.props.options || {}
+      prevNextButtons: true,
+      pageDots: false,
+      autoPlay: 5000,
+      parallax: null
+    }, this.props.options || {}
     )
-    
+
     setTimeout(() => {
       const carousel = new Flickity(ref, options)
     }, 10)
@@ -29,10 +29,10 @@ class Carousel extends Component {
     const className = this.props.className || ''
     const children = Array.isArray(this.props.children) ? this.props.children : [this.props.children]
     return (
-      <div ref={ ref => this.initializeFlickity(ref) } className={ `main-carousel ${className}` }>
-        {children.map((child, i) => 
+      <div ref={ref => this.initializeFlickity(ref)} className={`main-carousel ${className}`}>
+        {children.map((child, i) =>
           <div key={i} className='carousel-cell'>
-            { child }
+            {child}
           </div>
         )}
       </div>

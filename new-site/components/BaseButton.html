@@ -1,0 +1,70 @@
+<template>
+  <button class='button'>
+    <slot></slot>
+  </button>
+  <style>
+    .button {
+      position: relative;
+
+      padding: 0.85rem 1.75rem;
+
+      background: none;
+      color: var(--light-text);
+
+      border: solid 2px var(--theme-primary);
+      border-radius: 50px;
+
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: Montserrat, var(--default-fonts);
+      text-transform: uppercase;
+
+      transition: color 0.35s ease, background-color 0.35s ease;
+      will-change: padding, color, background-color;
+      cursor: pointer;
+    }
+
+    .button::after {
+      content: '';
+
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+
+      width: 0;
+      height: 1px;
+      border-radius: 14px;
+
+      background-color: rgba(#fed766, 0.8);
+
+      transform: translateX(-50%);
+      transition: width 0.35s ease;
+    }
+
+    .button:hover,
+    .button:active {
+      padding: 0.85rem 2.75rem;
+
+      color: var(--dark-text);
+      background-color: var(--theme-color);
+    }
+
+    .button:focus {
+      outline: none;
+    }
+
+    .button:focus:not(:active)::after {
+      width: 80%;
+    }
+  </style>
+</template>
+
+<script>
+  class BaseButton {
+    connectedCallback() {
+
+    }
+  }
+
+  customElements.define('base-button', BaseButton)
+</script>
