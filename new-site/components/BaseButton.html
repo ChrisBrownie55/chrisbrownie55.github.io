@@ -67,9 +67,7 @@
     class BaseButton extends HTMLElement {
       constructor() {
         super()
-      }
 
-      connectedCallback() {
         const shadowRoot = this.attachShadow({ mode: 'open' })
         shadowRoot.appendChild(template.content.cloneNode(true))
       }

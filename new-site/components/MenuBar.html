@@ -1,4 +1,4 @@
-<template id='menu-bar'>
+<template id='menu-bar-template'>
   <nav class='menu'>
     <input type='checkbox' id='menu-checkbox' />
     <label class='hamburger'>
@@ -9,13 +9,118 @@
       </svg>
     </label>
 
-    <section class='links'>
-      <template id='menu-link'>
-        <a></a>
-      </template>
+    <section class='menu__links'>
     </section>
   </nav>
 
   <style>
+    .menu {}
+
+    .menu__links {
+      position: fixed;
+      top: 0;
+      left: -24rem;
+
+      width: 16rem;
+      height: calc(100% - 9rem);
+      padding: 9rem 4rem 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      /* TODO: insert theme-primary's color's red green blue values */
+      background-color: rgba(theme-primary, 0.8);
+
+      transition: left 0.2s;
+      z-index: 998;
+
+    }
+
+    @media (max-device-width: 500px) {
+      .menu__links {
+        left: -100vw;
+
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+
+        justify-content: center;
+      }
+    }
+
+    .menu__links>button {
+      width: 10rem;
+      padding: 0.75rem 0;
+      margin-bottom: 5vh;
+
+      color: var(--dark-text);
+
+      font-weight: bold;
+      font-size: 1.3rem;
+      font-family: Montserrat, var(--default-fonts);
+      text-decoration: none;
+      text-align: center;
+
+      border: solid 2px #222;
+
+      transition: background-color 0.2s, color 0.2s;
+      will-change: background-color, color;
+      cursor: pointer;
+    }
+
+    .menu__links>a:hover {
+      background-color: #222;
+      color: var(--theme-primary);
+    }
   </style>
 </template>
+
+<script>
+
+  class MenuBar extends HTMLElement {
+    constructor() {
+      super()
+
+      const template = document.currentScript.ownerDocument.getElementById('menu-bar-template')
+      const shadowRoot = this.attachShadow({ mode: 'open' })
+      shadowRoot.appendChild(template.content.cloneNode(true))
+    }
+
+    static get observedAttributes() {
+      return ['links']
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      // since name is always 'links' (it's the only observed), no need to check
+      this.drawLinks()
+    }
+
+    get links() {
+      try {
+        return JSON.parse(this.getAttribute('links'))
+      } catch {
+        return []
+      }
+    }
+
+    drawLinks() {
+      const linkContainer = this.shadowRoot.querySelector('.menu__links')
+      linkContainer.innerHTML = ''
+
+      const elements = this.links.forEach(name => {
+        const button = document.createElement('button')
+        button.textContent = name
+        // TODO: hyphenate instead of removing spaces, requires change in css as well
+        button.onclick = () => {
+          const target = document.querySelector(`.${name.split(' ').join('').toLowerCase()}`)
+          smoothScroll(target)
+        }
+
+        linkContainer.appendChild(button)
+      })
+    }
+  }
+
+  customElements.define('menu-bar', MenuBar)
+</script>
