@@ -1,7 +1,7 @@
 <template id='menu-bar-template'>
   <nav class='menu'>
-    <input type='checkbox' id='menu-checkbox' />
-    <label class='hamburger'>
+    <input type='checkbox' id='menu__checkbox' />
+    <label class='hamburger' for='menu__checkbox'>
       <svg class='hamburger__icon' xmlns='https://www.w3.org/2000/svg' viewBox='0 0 24 24'>
         <path class='bar' d='M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
         <path class='bar' d='M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z' />
@@ -72,6 +72,14 @@
     .menu__links>a:hover {
       background-color: #222;
       color: var(--theme-primary);
+    }
+
+    #menu-checkbox {
+      display: none;
+    }
+
+    #menu__checkbox:checked~.menu__links {
+      left: 0;
     }
   </style>
 </template>
