@@ -252,11 +252,11 @@ main {
 
 section {
   width: calc(98vw - 14rem);
-  padding: 4.5rem calc(7rem +1vw);
+  padding: 4.5rem calc(7rem + 1vw);
   background-color: #fff;
 }
 
-section__title {
+section .title {
   font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
 }
 
@@ -957,6 +957,7 @@ footer p {
 body::-webkit-scrollbar {
   width: 6px;
   border-left: 1px solid #e6ecf8;
+  background-color: white;
 }
 
 body::-webkit-scrollbar-track {
@@ -973,13 +974,13 @@ body::-webkit-scrollbar-thumb {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
-  to {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
   50% {
     -webkit-transform: translateY(0.45rem);
             transform: translateY(0.45rem);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
@@ -988,13 +989,13 @@ body::-webkit-scrollbar-thumb {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
-  to {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
   50% {
     -webkit-transform: translateY(0.45rem);
             transform: translateY(0.45rem);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 

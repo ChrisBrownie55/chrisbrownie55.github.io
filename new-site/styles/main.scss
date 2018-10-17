@@ -246,11 +246,11 @@ main {
 
 section {
   width: calc(98vw - 14rem);
-  padding: 4.5rem calc(7rem +1vw);
+  padding: 4.5rem calc(7rem + 1vw);
 
   background-color: #fff;
 
-  &__title {
+  .title {
     font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI",
       "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue",
       "sans-serif";
@@ -786,6 +786,7 @@ footer {
 body::-webkit-scrollbar {
   width: 6px;
   border-left: 1px solid #e6ecf8;
+  background-color: white;
 }
 
 body::-webkit-scrollbar-track {
@@ -797,51 +798,15 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid #7f7f7f;
 }
 
-@-moz-keyframes arrow-shake {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(0.45rem);
-  }
-}
-
-@-webkit-keyframes arrow-shake {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(0.45rem);
-  }
-}
-
-@-o-keyframes arrow-shake {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(0.45rem);
-  }
-}
-
 @keyframes arrow-shake {
   from {
     transform: translateY(0);
   }
-  to {
-    transform: translateY(0);
-  }
   50% {
     transform: translateY(0.45rem);
+  }
+  to {
+    transform: translateY(0);
   }
 }
 
