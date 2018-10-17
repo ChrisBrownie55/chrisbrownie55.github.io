@@ -13,5 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('main-header')
     header.style.backgroundImage = `url(${image.src})`
   }
-  // image.src = 'assets/header-background-min.jpg'
+  image.src = 'assets/header-background-min.jpg'
 })
