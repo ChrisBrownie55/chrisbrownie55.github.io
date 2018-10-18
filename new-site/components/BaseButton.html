@@ -1,79 +1,66 @@
 <body>
 
-  <template id='base-button-template'>
-    <button>
-      <slot></slot>
-    </button>
-    <style>
-      button {
-        position: relative;
+  <style id='base-button-style'>
+    button[is='base-button'] {
+      position: relative;
 
-        padding: 0.85rem 1.75rem;
+      padding: 0.85rem 1.75rem;
 
-        background: none;
-        color: var(--light-text);
+      background: none;
+      color: var(--light-text);
 
-        border: solid 2px var(--theme-primary);
-        border-radius: 50px;
+      border: solid 2px var(--theme-primary);
+      border-radius: 50px;
 
-        font-size: 1rem;
-        font-weight: 700;
-        font-family: Montserrat, var(--default-fonts);
-        text-transform: uppercase;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: Montserrat, var(--default-fonts);
+      text-transform: uppercase;
 
-        transition: padding 0.35s ease, color 0.35s ease, background-color 0.35s ease;
-        will-change: padding, color, background-color;
-        cursor: pointer;
-      }
-
-      button::after {
-        content: '';
-
-        position: absolute;
-        top: calc(100% + 4px);
-        left: 50%;
-
-        width: 0;
-        height: 1px;
-        border-radius: 14px;
-
-        background-color: rgba(#fed766, 0.8);
-
-        transform: translateX(-50%);
-        transition: width 0.35s ease;
-      }
-
-      button:hover,
-      button:active {
-        padding: 0.85rem 2.75rem;
-
-        color: var(--dark-text);
-        background-color: var(--theme-primary);
-      }
-
-      button:focus {
-        outline: none;
-      }
-
-      button:focus:not(:active)::after {
-        width: 80%;
-      }
-    </style>
-  </template>
-
-  <script>
-    const template = document.currentScript.ownerDocument.getElementById('base-button-template')
-
-    class BaseButton extends HTMLElement {
-      constructor() {
-        super()
-
-        const shadowRoot = this.attachShadow({ mode: 'open' })
-        shadowRoot.appendChild(template.content.cloneNode(true))
-      }
+      transition: padding 0.35s ease, color 0.35s ease, background-color 0.35s ease;
+      will-change: padding, color, background-color;
+      cursor: pointer;
     }
 
-    customElements.define('base-button', BaseButton)
+    button[is='base-button']::after {
+      content: '';
+
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+
+      width: 0;
+      height: 2px;
+      border-radius: 14px;
+
+      background-color: rgba(254, 215, 102, 0.8);
+
+      transform: translateX(-50%);
+      transition: width 0.35s ease;
+    }
+
+    button[is='base-button']:hover,
+    button[is='base-button']:active {
+      padding: 0.85rem 2.75rem;
+
+      color: var(--dark-text);
+      background-color: var(--theme-primary);
+    }
+
+    button[is='base-button']:focus {
+      outline: none;
+    }
+
+    button[is='base-button']:focus:not(:active)::after {
+      width: 80%;
+    }
+  </style>
+
+  <script>
+    // Mitigates deprecation of style application in HTML Imports
+    document.head.appendChild(document.currentScript.ownerDocument.querySelector('style'));
+
+    // Defining a custom elemnet is not neccessary because I am only styling the is='base-button'
   </script>
 
 </body>

@@ -1,21 +1,17 @@
-<template id='menu-bar-template'>
-  <nav class='menu'>
-    <input type='checkbox' id='menu__checkbox' />
-    <label class='hamburger' for='menu__checkbox'>
-      <svg class='hamburger__icon' xmlns='https://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-        <path class='bar' d='M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
-        <path class='bar' d='M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z' />
-        <path class='bar' d='M4,20h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
-      </svg>
-    </label>
+<template id='side-menu-template'>
+  <input type='checkbox' id='menu__checkbox' />
+  <label class='hamburger' for='menu__checkbox'>
+    <svg class='hamburger__icon' xmlns='https://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+      <path class='bar' d='M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
+      <path class='bar' d='M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z' />
+      <path class='bar' d='M4,20h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
+    </svg>
+  </label>
 
-    <section class='menu__links'>
-    </section>
-  </nav>
+  <section class='menu__links'>
+  </section>
 
   <style>
-    .menu {}
-
     .menu__links {
       position: fixed;
       top: 0;
@@ -29,8 +25,7 @@
       flex-direction: column;
       align-items: center;
 
-      /* TODO: insert theme-primary's color's red green blue values */
-      background-color: rgba(theme-primary, 0.8);
+      background-color: rgba(254, 215, 102, 0.8);
 
       transition: left 0.2s;
       z-index: 998;
@@ -55,6 +50,7 @@
       margin-bottom: 5vh;
 
       color: var(--dark-text);
+      background-color: transparent;
 
       font-weight: bold;
       font-size: 1.3rem;
@@ -69,28 +65,96 @@
       cursor: pointer;
     }
 
-    .menu__links>a:hover {
+    .menu__links>button:hover {
       background-color: #222;
       color: var(--theme-primary);
     }
 
-    #menu-checkbox {
+    #menu__checkbox {
       display: none;
     }
 
     #menu__checkbox:checked~.menu__links {
       left: 0;
     }
+
+    .hamburger {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+
+      width: 3rem;
+      height: 3rem;
+
+      display: block;
+
+      transition: left 0.2s;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .hamburger__icon {
+      width: 100%;
+      height: 100%;
+
+      cursor: pointer;
+    }
+
+    .bar {
+      fill: white;
+
+      transform: translate(0);
+      transform-origin: center;
+
+      transition: fill 0.2s, transform 0.4s cubic-bezier(.45, .98, .38, 1.52);
+    }
+
+    .bar:nth-child(2) {
+      transition-delay: 0s, 0.05s;
+    }
+
+    .bar:last-child {
+      transition-delay: 0s, 0.1s;
+    }
+
+    #menu__checkbox:checked+.hamburger {
+      left: 16rem;
+    }
+
+    #menu__checkbox:checked+.hamburger:hover .bar {
+      fill: #444 !important;
+    }
+
+    #menu__checkbox:checked+.hamburger .bar {
+      fill: #222 !important;
+    }
+
+    .hamburger__icon:hover>.bar,
+    #menu__checkbox:checked+.hamburger .bar {
+      fill: #ccc;
+    }
+
+    .hamburger__icon:hover>.bar:first-child,
+    #menu__checkbox:checked+.hamburger .bar:first-child,
+    .hamburger__icon:hover>.bar:last-child,
+    #menu__checkbox:checked+.hamburger .bar:last-child {
+      transform: translate(5px);
+    }
+
+    .hamburger__icon:hover>.bar:nth-child(2),
+    #menu__checkbox:checked+.hamburger .bar:nth-child(2) {
+      transform: translate(1px);
+    }
   </style>
 </template>
 
 <script>
 
-  class MenuBar extends HTMLElement {
+  class SideMenu extends HTMLElement {
     constructor() {
       super()
 
-      const template = document.currentScript.ownerDocument.getElementById('menu-bar-template')
+      const template = document.currentScript.ownerDocument.getElementById('side-menu-template')
       const shadowRoot = this.attachShadow({ mode: 'open' })
       shadowRoot.appendChild(template.content.cloneNode(true))
     }
@@ -130,5 +194,5 @@
     }
   }
 
-  customElements.define('menu-bar', MenuBar)
+  customElements.define('side-menu', SideMenu, { extends: 'nav' })
 </script>

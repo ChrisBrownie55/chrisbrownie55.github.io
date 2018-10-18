@@ -15,26 +15,26 @@
     width: calc(99vw - 8rem);
     padding: 4.5rem calc(4rem +0.5vw);
   }
-  section.hire > .subtitle {
+  .hire > .subtitle {
     text-align: center;
     margin-top: 0.5rem;
   }
-  section.hire > .subtitle::before {
+  .hire > .subtitle::before {
     width: 0;
     margin: 0;
     border: none;
   }
-  section.hire form {
+  .hire form {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     -ms-grid-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem;
         grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem;
     height: 34rem;
   }
-  section.hire form > * {
+  .hire form > * {
     grid-area: span 1 / span 1 !important;
   }
-  section.challenge-solution {
+  .challenge-solution {
     --side-padding: 2rem;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -50,25 +50,25 @@
     padding-left: var(--side-padding);
     padding-right: var(--side-padding);
   }
-  section.challenge-solution article {
+  .challenge-solution article {
     font-size: 1.35rem;
   }
-  section.challenge-solution article:first-child {
+  .challenge-solution article:first-child {
     margin-bottom: 3.5rem;
   }
-  section.challenge-solution article .title {
+  .challenge-solution article .title {
     text-align: center;
     font-size: 1.4em;
   }
-  section.contact {
+  .contact {
     width: calc(100% - calc(5vw +1rem));
     padding-left: calc(2.5vw +0.5rem);
     padding-right: calc(2.5vw +0.5rem);
   }
-  section > .title {
+  > .title {
     text-align: center !important;
   }
-  section.about article {
+  .about article {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
         -ms-flex-direction: column !important;
@@ -76,7 +76,7 @@
     width: calc(80% +2vw);
     margin: 0 auto 2.25rem !important;
   }
-  section.about article:nth-child(n) {
+  .about article:nth-child(n) {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
         -ms-flex-direction: column !important;
@@ -84,49 +84,56 @@
     width: calc(80% +2vw);
     margin: 0 auto 2.25rem !important;
   }
-  section.about article p {
+  .about article p {
     text-align: center !important;
   }
-  section.expertise .skills {
+  .expertise .skills {
     -ms-grid-rows: 1fr 1fr 1fr;
     -ms-grid-columns: 1fr 1fr 1fr;
         grid-template: 1fr 1fr 1fr/1fr 1fr 1fr;
     height: 27rem;
     width: 27rem;
   }
-  .mywork {
-    --side-padding: calc(5vw * 1.1);
-    padding-left: var(--side-padding);
-    padding-right: var(--side-padding);
-    width: calc(100vw - calc(var(--side-padding) * 2));
-  }
-  .slides {
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-  }
-  .slides .flickity-button {
-    display: none;
-  }
-  .slides > div > div > div .slide {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    height: 45rem;
-  }
-  .slides > div > div > div .slide .slideItem:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-  .header > .image {
-    position: absolute !important;
-  }
-  .header > .blur {
-    position: absolute !important;
-  }
+}
+
+.mywork {
+  --side-padding: calc(5vw * 1.1);
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+  width: calc(100vw - calc(var(--side-padding) * 2));
+}
+
+.slides {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+.slides .flickity-button {
+  display: none;
+}
+
+.slides > div > div > div .slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 45rem;
+}
+
+.slides > div > div > div .slide .slideItem:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.header > .image {
+  position: absolute !important;
+}
+
+.header > .blur {
+  position: absolute !important;
 }
 
 body {
@@ -186,31 +193,32 @@ main {
 
 .header__learn-more {
   position: relative;
-  font-size: 0.95rem;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.702);
-  font-family: "Questrial", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
   margin: 0 0 -2vw;
-  will-change: color;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.702);
+  background-color: transparent;
+  font-size: 0.95rem;
+  font-family: "Questrial", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
+  text-align: center;
+  white-space: nowrap;
+  border: none;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  text-align: center;
-  white-space: nowrap;
   -webkit-transition: color 0.2s linear;
   transition: color 0.2s linear;
-  background-color: transparent;
-  border: none;
+  will-change: color;
+  cursor: pointer;
 }
 
 .header__learn-more svg {
-  margin-top: 0.75rem;
   width: 0.95rem;
   height: 0.95rem;
+  margin-top: 0.75rem;
+  fill: rgba(255, 255, 255, 0.702);
   -webkit-animation: arrow-shake 1.75s ease-in-out infinite;
           animation: arrow-shake 1.75s ease-in-out infinite;
-  fill: rgba(255, 255, 255, 0.702);
   -webkit-transition: fill 0.2s linear;
   transition: fill 0.2s linear;
 }
@@ -239,15 +247,15 @@ main {
 .header__learn-more::after {
   content: "";
   position: absolute;
-  background-color: #fff;
   left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  border-radius: 14px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  height: 1px;
   -webkit-transition: width 0.35s ease;
   transition: width 0.35s ease;
-  border-radius: 14px;
-  width: 0;
 }
 
 section {
@@ -256,11 +264,13 @@ section {
   background-color: #fff;
 }
 
-section .title {
+.title {
+  margin-bottom: 5rem;
+  font-size: 2.25rem;
   font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
 }
 
-section.expertise {
+.expertise {
   background-color: #eee;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,18 +288,21 @@ section.expertise {
   padding-top: 0;
 }
 
-section.expertise .title {
+.expertise__title {
   padding: 0.8rem 1rem;
   border: solid 4px #222;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
-section.expertise .subtitle {
-  font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
+.expertise__subtitle {
+  font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
   font-size: 1.85rem;
   margin-bottom: 2.5rem;
 }
 
-section.expertise .skills {
+.expertise__skills {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr 1fr;
@@ -300,125 +313,31 @@ section.expertise .skills {
   height: 18rem;
 }
 
-section.expertise .skills .skill {
-  width: 100%;
-  margin: 0;
-  position: relative;
-}
-
-section.expertise .skills .skill input[type="checkbox"] {
-  display: none;
-}
-
-section.expertise .skills .skill input[type="checkbox"]:checked ~ .skill-wrapper {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-section.expertise .skills .skill label {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  z-index: 2;
-}
-
-section.expertise .skills .skill .skill-wrapper {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  will-change: transform;
-  -webkit-transition: -webkit-transform 0.35s ease-in-out;
-  transition: -webkit-transform 0.35s ease-in-out;
-  transition: transform 0.35s ease-in-out;
-  transition: transform 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
-  width: calc(100% - 3rem);
-  height: calc(100% - 3rem);
-  padding: 1.5rem;
-  position: relative;
-  background: #2a2a2a;
-  border-radius: 0.15rem;
-}
-
-section.expertise .skills .skill svg {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 1;
-  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
-  text-align: center;
-  color: #eee;
-}
-
-section.expertise .skills .skill svg path {
-  stroke-width: 0;
-  stroke: none;
-  stroke-dasharray: none;
-}
-
-section.expertise .skills .skill svg:not(.mobx) path {
-  fill: var(--theme-primary);
-  fill-rule: evenOdd;
-}
-
-section.expertise .skills .skill .skill-caption {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 1;
-  display: inline-block;
-  -webkit-transform: rotateY(180deg) translate(50%, -50%);
-          transform: rotateY(180deg) translate(50%, -50%);
-  color: #fff;
-  font-size: 3rem;
-  font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
-  font-weight: bold;
-  width: calc(100% - 1rem);
-  padding-right: 1rem;
-  text-align: center;
-}
-
-section.expertise .skills .skill .skill-caption sup {
-  font-size: 1rem;
-  position: absolute;
-  -webkit-transform: translate(0.25rem, -0.125rem);
-          transform: translate(0.25rem, -0.125rem);
-}
-
-section.mywork {
+.mywork {
   background-color: #eee;
 }
 
-section.mywork > .title {
+.mywork__title {
   text-align: right;
 }
 
-section.hire {
+.hire {
   background-color: #222;
   color: #fff;
 }
 
-section.hire > .title {
+.hire__title {
   margin-bottom: 0;
 }
 
-section.hire > .subtitle {
+.hire__subtitle {
   margin-bottom: 5rem;
   margin-top: 0;
-  font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
+  font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
   font-weight: bold;
 }
 
-section.hire > .subtitle::before {
+.hire__subtitle::before {
   content: "";
   width: 3rem;
   height: 3px;
@@ -429,7 +348,7 @@ section.hire > .subtitle::before {
   margin-right: 1rem;
 }
 
-section.hire form {
+.hire form {
   display: -ms-grid;
   display: grid;
   height: 28rem;
@@ -443,15 +362,15 @@ section.hire form {
   margin: 0 auto;
 }
 
-section.hire form .float-input {
+.hire form .float-input {
   grid-area: span 1;
 }
 
-section.hire form .float-textarea {
+.hire form .float-textarea {
   grid-area: span 1 / span 2;
 }
 
-section.hire form button {
+.hire form button {
   font-size: 1.1rem;
   width: 21rem;
   height: 4rem;
@@ -461,20 +380,20 @@ section.hire form button {
   transition: width 0.35s ease;
 }
 
-section.hire form button:hover {
+.hire form button:hover {
   width: 23rem;
 }
 
-section.about {
+.about {
   padding-bottom: 10rem;
   position: relative;
 }
 
-section.about .title {
+.about__title {
   text-align: center;
 }
 
-section.about article {
+.about article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -493,23 +412,23 @@ section.about article {
   max-width: 100%;
 }
 
-section.about article:nth-of-type(2) {
+.about article:nth-of-type(2) {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
 }
 
-section.about article:nth-of-type(2) p {
+.about article:nth-of-type(2) p {
   text-align: right;
 }
 
-section.about article:nth-of-type(2n) {
+.about article:nth-of-type(2n) {
   margin-left: auto;
   margin-right: 0;
 }
 
-section.about article img {
+.about article img {
   width: 9rem;
   min-width: 9rem;
   height: 9rem;
@@ -520,44 +439,44 @@ section.about article img {
      object-fit: cover;
 }
 
-section.about article img#senior1 {
+.about article img#senior1 {
   -o-object-position: 50% 5%;
      object-position: 50% 5%;
   -webkit-box-shadow: -1px -1px 9px 1px rgba(0, 0, 0, 0.28);
           box-shadow: -1px -1px 9px 1px rgba(0, 0, 0, 0.28);
 }
 
-section.about article img#senior2 {
+.about article img#senior2 {
   -o-object-position: 68%;
      object-position: 68%;
   -webkit-box-shadow: -1px -1px 9px 1px rgba(0, 0, 0, 0.28);
           box-shadow: -1px -1px 9px 1px rgba(0, 0, 0, 0.28);
 }
 
-section.about article p {
-  font-family: "Georgia", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
+.about article p {
+  font-family: "Georgia", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
   font-size: 1.1rem;
   color: #444;
 }
 
-section.about article p a[href] {
+.about article p a[href] {
   font-weight: bold;
-  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
+  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
   font-size: 1.05rem;
   white-space: nowrap;
   color: #1f77da;
   text-decoration: none;
 }
 
-section.about article p a[href]:hover {
+.about article p a[href]:hover {
   text-decoration: underline;
 }
 
-section.about article:not(:last-of-type) {
+.about article:not(:last-of-type) {
   margin-bottom: 1.75rem;
 }
 
-section.about::after {
+.about::after {
   content: "";
   -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
           clip-path: polygon(0 0, 100% 100%, 0 100%);
@@ -569,7 +488,7 @@ section.about::after {
   position: absolute;
 }
 
-section.challenge-solution {
+.challenge-solution {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -584,7 +503,7 @@ section.challenge-solution {
   padding-bottom: 5rem;
 }
 
-section.challenge-solution article {
+.challenge-solution article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -596,20 +515,20 @@ section.challenge-solution article {
   max-width: 30rem;
 }
 
-section.challenge-solution article .title {
+.challenge-solution article .title {
   color: var(--theme-primary);
   font-size: 1.125em;
   text-transform: uppercase;
   margin: 0 0 1.2rem;
 }
 
-section.challenge-solution article p {
-  font-family: "Georgia", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
+.challenge-solution article p {
+  font-family: "Georgia", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
   font-size: 0.95em;
   margin: unset;
 }
 
-section.contact {
+.contact {
   background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -620,11 +539,11 @@ section.contact {
           flex-direction: column;
 }
 
-section.contact .title {
+.contact__title {
   text-align: center;
 }
 
-section.contact div {
+.contact div {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -638,7 +557,7 @@ section.contact div {
           justify-content: space-between;
 }
 
-section.contact div a[href] {
+.contact div a[href] {
   cursor: pointer;
   width: calc(1.5rem +7.5vw);
   max-width: 5rem;
@@ -646,57 +565,52 @@ section.contact div a[href] {
   max-height: 5rem;
 }
 
-section.contact div a[href]:focus {
+.contact div a[href]:focus {
   outline: none;
 }
 
-section.contact div a[href]:focus svg path {
+.contact div a[href]:focus svg path {
   stroke: var(--theme-primary);
   stroke-width: 2px;
 }
 
-section.contact div a[href] svg {
+.contact div a[href] svg {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-section.contact div a[href] svg path {
+.contact div a[href] svg path {
   stroke-linecap: rounded;
   -webkit-transition: fill 0.25s ease-in-out, stroke-width 0.25s ease-in-out;
   transition: fill 0.25s ease-in-out, stroke-width 0.25s ease-in-out;
 }
 
-section.contact div a[href]:hover svg path {
+.contact div a[href]:hover svg path {
   fill: var(--theme-primary);
 }
 
-section > .title {
-  font-size: 2.25rem;
-  margin-bottom: 5rem;
-}
-
 @media (min-width: 1535px) {
-  section.hire .title {
+  .hire .title {
     margin-left: calc(50% - 40rem);
   }
-  section.hire .subtitle {
+  .hire .subtitle {
     margin-left: calc(50% - 40rem);
   }
 }
 
 @media (max-width: 450px) {
-  section.hire form button {
+  .hire form button {
     width: 90%;
   }
-  section.hire form button:hover {
+  .hire form button:hover {
     width: 100%;
   }
 }
 
 @media (min-width: 801px) {
-  section.about > div {
+  .about > div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -712,7 +626,7 @@ section > .title {
 }
 
 @media (max-width: 900px) {
-  section.about article:nth-of-type(2) {
+  .about article:nth-of-type(2) {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -720,13 +634,13 @@ section > .title {
     margin-right: auto;
     margin-left: 0 !important;
   }
-  section.about article:nth-of-type(2) p {
+  .about article:nth-of-type(2) p {
     text-align: left;
   }
 }
 
 @media (max-width: 500px) {
-  section.expertise .skills {
+  .expertise .skills {
     -ms-grid-rows: 1fr 1fr 1fr 1fr;
     -ms-grid-columns: 1fr 1fr;
         grid-template: 1fr 1fr 1fr 1fr/1fr 1fr;

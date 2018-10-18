@@ -12,10 +12,11 @@
   <!-- Components -->
   <link rel='import' href='components/BaseButton.html' />
   <link rel='import' href='components/MenuBar.html' />
+  <link rel='import' href='components/FlipCard.html' />
 </head>
 
 <body>
-  <menu-bar links='["About", "Expertise", "My Work", "Hire", "Contact"]'></menu-bar>
+  <nav is='side-menu' links='["About", "Expertise", "My Work", "Hire", "Contact"]'></nav>
   <header id='main-header' class='header'>
     <svg class='logo' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'>
       <rect x='15' y='15' fill='#fed766' width='370' height='370' rx='40' />
@@ -26,9 +27,9 @@
       <br />
       I engineer websites.
     </h1>
-    <base-button class='header__hire-button' scroll-target='.hire'>
+    <button is='base-button' class='header__hire-button' scroll-target='.hire'>
       Yes, I'm available for hire
-    </base-button>
+    </button>
     <button class='header__learn-more' scroll-target='.about'>
       Learn More About What I Do
       <br />
@@ -70,8 +71,20 @@
     </div>
   </section>
 
-  <script src='js/smoothscroll.js'></script>
-  <script src='js/index.js'></script>
+  <section class='expertise'>
+    <h1 class='title expertise__title'>Expertise</h1>
+    <h1 class='subtitle expertise__subtitle'>What am I skilled at?</h1>
+    <section class='expertise__skills'>
+      <flip-card title='CSS3' years='4.5'>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220.5 199.5">
+          <path d="M32.8,0L25.4,37.0 176.0,37.0 171.3,60.9 20.6,60.9 13.3,97.9 163.9,97.9 155.5,140.1 94.8,160.2 42.2,140.1 45.8,121.8 8.8,121.8 0,166.2 87.0,199.5 187.3,166.2 200.6,99.4 203.3,86.0 220.4,0z" />
+        </svg>
+      </flip-card>
+      </article>
+    </section>
+
+    <script src='js/smoothscroll.js'></script>
+    <script src='js/index.js'></script>
 </body>
 
 </html>
