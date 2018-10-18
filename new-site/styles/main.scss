@@ -94,7 +94,7 @@
     }
   }
 
-  .expertise .skills {
+  .expertise__skills {
     grid-template: 1fr 1fr 1fr/1fr 1fr 1fr;
 
     height: 27rem;
@@ -549,7 +549,7 @@ section {
 }
 
 @media (max-width: 500px) {
-  .expertise .skills {
+  .expertise__skills {
     grid-template: 1fr 1fr 1fr 1fr/1fr 1fr;
     height: 36rem;
     width: 18rem;

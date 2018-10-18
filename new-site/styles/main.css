@@ -87,7 +87,7 @@
   .about article p {
     text-align: center !important;
   }
-  .expertise .skills {
+  .expertise__skills {
     -ms-grid-rows: 1fr 1fr 1fr;
     -ms-grid-columns: 1fr 1fr 1fr;
         grid-template: 1fr 1fr 1fr/1fr 1fr 1fr;
@@ -640,7 +640,7 @@ section {
 }
 
 @media (max-width: 500px) {
-  .expertise .skills {
+  .expertise__skills {
     -ms-grid-rows: 1fr 1fr 1fr 1fr;
     -ms-grid-columns: 1fr 1fr;
         grid-template: 1fr 1fr 1fr 1fr/1fr 1fr;
