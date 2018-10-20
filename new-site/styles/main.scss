@@ -11,8 +11,8 @@
     font-size: 14px;
   }
   body>section {
-    width: calc(99vw - 8rem);
-    padding: 4.5rem calc(4rem +0.5vw);
+    width: calc(99vw - 8rem) !important;
+    padding: 4.5rem calc(4rem + 0.5vw) !important;
   }
   .hire {
     > {
@@ -234,16 +234,28 @@ body>section {
     width: fit-content;
   }
   &__subtitle {
-    font-family: "Montserrat", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "sans-serif";
+    margin-bottom: 0.1rem;
+
+    font-family: "Montserrat", var(--default-fonts);
     font-size: 1.85rem;
+    text-align: center;
+  }
+  &__hint {
+    margin-top: 0rem;
     margin-bottom: 2.5rem;
+
+    font-family: Roboto, var(--default-fonts);
+    font-size: 0.85rem;
   }
   &__skills {
     display: grid;
-    grid-template: 1fr 1fr/1fr 1fr 1fr 1fr;
+    grid-template: repeat(2, 10rem) / repeat(4, 9rem);
     grid-gap: 1rem;
+
+    // width and height of each card is 9rem
+    // extra 2rem on height is for `name`
     width: 36rem;
-    height: 18rem;
+    height: 20rem;
   }
 }
 
