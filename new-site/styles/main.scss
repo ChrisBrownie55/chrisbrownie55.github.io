@@ -7,100 +7,6 @@
   --light-text: white;
   --dark-text: #222;
 }
-@media (max-width: 800px) {
-  html {
-    font-size: 14px;
-  }
-
-  body > section {
-    width: calc(99vw - 8rem) !important;
-    padding: 4.5rem calc(4rem + 0.5vw) !important;
-  }
-
-  .hire {
-    > {
-      .subtitle {
-        text-align: center;
-        margin-top: 0.5rem;
-      }
-
-      .subtitle::before {
-        width: 0;
-        margin: 0;
-        border: none;
-      }
-    }
-
-    form {
-      grid-template-columns: 1fr;
-      grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem;
-      height: 34rem;
-
-      > * {
-        grid-area: span 1 / span 1 !important;
-      }
-    }
-  }
-
-  .challenge-solution {
-    --side-padding: 2rem;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    width: calc(100vw - calc(var(--side-padding) * 2));
-    padding-left: var(--side-padding);
-    padding-right: var(--side-padding);
-
-    article {
-      font-size: 1.35rem;
-
-      &:first-child {
-        margin-bottom: 3.5rem;
-      }
-
-      .title {
-        text-align: center;
-        font-size: 1.4em;
-      }
-    }
-  }
-
-  .contact {
-    width: calc(100% - calc(5vw +1rem));
-    padding-left: calc(2.5vw +0.5rem);
-    padding-right: calc(2.5vw +0.5rem);
-  }
-
-  > .title {
-    text-align: center !important;
-  }
-
-  .about article {
-    flex-direction: column !important;
-
-    width: calc(80% +2vw);
-    margin: 0 auto 2.25rem !important;
-
-    &:nth-child(n) {
-      flex-direction: column !important;
-
-      width: calc(80% +2vw);
-      margin: 0 auto 2.25rem !important;
-    }
-
-    p {
-      text-align: center !important;
-    }
-  }
-
-  .expertise__skills {
-    grid-template: 1fr 1fr 1fr/1fr 1fr 1fr;
-    height: 27rem;
-    width: 27rem;
-  }
-}
 
 .mywork {
   --side-padding: calc(5vw * 1.1);
@@ -293,16 +199,31 @@ body > section {
   }
 
   &__skills {
+    --card-width: 9rem;
+    --card-height: 11rem;
+
+    --column-count: 4;
+    --row-count: 2;
+
     display: grid;
-    grid-template: repeat(2, 10rem) / repeat(4, 9rem);
+    grid-template: repeat(var(--row-count), var(--card-height)) / repeat(
+        var(--column-count),
+        var(--card-width)
+      );
     grid-gap: 1rem;
 
     // width and height of each card is 9rem
     // extra 2rem on height is for `name`
     // another 1rem for gap
 
-    width: 36rem;
-    height: 21rem;
+    width: calc(
+      calc(var(--card-width) * var(--column-count)) +
+        calc(1rem * calc(var(--column-count) - 1))
+    );
+    height: calc(
+      calc(var(--card-height) * var(--row-count)) +
+        calc(1rem * calc(var(--row-count) - 1))
+    );
   }
 }
 
@@ -603,12 +524,104 @@ body > section {
     }
   }
 }
+@media (max-width: 800px) {
+  html {
+    font-size: 14px;
+  }
+
+  body > section {
+    width: calc(99vw - 8rem) !important;
+    padding: 4.5rem calc(4rem + 0.5vw) !important;
+  }
+
+  .hire {
+    > {
+      .subtitle {
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+
+      .subtitle::before {
+        width: 0;
+        margin: 0;
+        border: none;
+      }
+    }
+
+    form {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem;
+      height: 34rem;
+
+      > * {
+        grid-area: span 1 / span 1 !important;
+      }
+    }
+  }
+
+  .challenge-solution {
+    --side-padding: 2rem;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: calc(100vw - calc(var(--side-padding) * 2));
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+
+    article {
+      font-size: 1.35rem;
+
+      &:first-child {
+        margin-bottom: 3.5rem;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 1.4em;
+      }
+    }
+  }
+
+  .contact {
+    width: calc(100% - calc(5vw +1rem));
+    padding-left: calc(2.5vw +0.5rem);
+    padding-right: calc(2.5vw +0.5rem);
+  }
+
+  > .title {
+    text-align: center !important;
+  }
+
+  .about article {
+    flex-direction: column !important;
+
+    width: calc(80% +2vw);
+    margin: 0 auto 2.25rem !important;
+
+    &:nth-child(n) {
+      flex-direction: column !important;
+
+      width: calc(80% +2vw);
+      margin: 0 auto 2.25rem !important;
+    }
+
+    p {
+      text-align: center !important;
+    }
+  }
+
+  .expertise__skills {
+    --column-count: 3;
+    --row-count: 3;
+  }
+}
+
 @media (max-width: 500px) {
   .expertise__skills {
-    grid-template: 1fr 1fr 1fr 1fr/1fr 1fr;
-
-    height: 36rem;
-    width: 18rem;
+    --column-count: 2;
+    --row-count: 4;
   }
 }
 
