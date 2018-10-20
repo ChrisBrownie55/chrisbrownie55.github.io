@@ -21,10 +21,13 @@ const setValue = key => value => obj => obj[key] = value
 function flipAllCards() {
   const flipCards = Array.from(document.querySelectorAll('flip-card'))
   const setFlipped = setValue('flipped')
+  const setFlippedWithDelay = flipped => (el, index) => {
+    setTimeout(() => setFlipped(flipped)(el), index * 50)
+  }
 
   if (flipCards.some(flipCard => flipCard.flipped)) {
-    flipCards.forEach(setFlipped(false))
+    flipCards.forEach(setFlippedWithDelay(false))
   } else {
-    flipCards.forEach(setFlipped(true))
+    flipCards.forEach(setFlippedWithDelay(true))
   }
 }
