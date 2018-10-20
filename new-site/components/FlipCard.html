@@ -32,7 +32,7 @@
       left: 0;
 
       width: 100%;
-      height: calc(100% - 1rem);
+      height: calc(100% - 2rem);
       margin: 0;
 
       opacity: 0;
@@ -72,14 +72,14 @@
       will-change: transform;
     }
 
-    :host(:active) .content,
+    .checkbox:active+.content,
     .checkbox:focus+.content {
       --translateY: -0.1rem;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
 
     @media (hover: hover) {
-      :host(:hover) .content {
+      .checkbox:hover+.content {
         --translateY: -0.1rem;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
       }
