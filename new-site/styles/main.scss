@@ -123,11 +123,23 @@ main {
       animation: arrow-shake 1.75s ease-in-out infinite;
     }
 
-    &:hover {
+    &:active {
       color: #fff;
+
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
       svg {
         fill: #fff;
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: #fff;
+
+        svg {
+          fill: #fff;
+        }
       }
     }
 
