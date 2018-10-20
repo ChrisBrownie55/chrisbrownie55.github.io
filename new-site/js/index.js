@@ -15,3 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   image.src = 'assets/header-background-min.jpg'
 })
+
+const setValue = key => value => obj => obj[key] = value
+
+function flipAllCards() {
+  const flipCards = Array.from(document.querySelectorAll('flip-card'))
+  const setFlipped = setValue('flipped')
+
+  if (flipCards.some(flipCard => flipCard.flipped)) {
+    flipCards.forEach(setFlipped(false))
+  } else {
+    flipCards.forEach(setFlipped(true))
+  }
+}

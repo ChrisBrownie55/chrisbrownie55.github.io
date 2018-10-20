@@ -1,19 +1,19 @@
 <template id='flip-card-template'>
-  <input class='flip-card__checkbox' type='checkbox' />
+  <input class='checkbox' type='checkbox' />
   <figure class='content'>
     <slot>
       <!-- SVG goes in default slot -->
     </slot>
-    <figcaption class='content__back'>
+    <figcaption class='content-back'>
       <p>
-        <span class='content-back__years'>
+        <span class='years'>
           <!-- Fill with `years` attribute -->
         </span>
         <sup>yrs</sup>
       </p>
     </figcaption>
   </figure>
-  <h4 class='flip-card__name'>
+  <h4 class='name'>
     <!-- Fill with `name` attribute -->
   </h4>
 
@@ -26,7 +26,7 @@
       margin: 0;
     }
 
-    .flip-card__checkbox {
+    .checkbox {
       position: absolute;
       top: 0;
       left: 0;
@@ -40,11 +40,11 @@
       z-index: 2;
     }
 
-    .flip-card__checkbox:active {
+    .checkbox:active {
       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     }
 
-    .flip-card__checkbox:checked+.content {
+    .checkbox:checked+.content {
       transform: rotateY(180deg) translateY(var(--translateY));
     }
 
@@ -73,7 +73,7 @@
     }
 
     :host(:active) .content,
-    .flip-card__checkbox:focus+.content {
+    .checkbox:focus+.content {
       --translateY: -0.1rem;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
@@ -94,7 +94,7 @@
       z-index: 1;
     }
 
-    .content__back {
+    .content-back {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -115,15 +115,13 @@
       z-index: 1;
     }
 
-    .content__back sup {
+    .content-back sup {
       position: absolute;
-
       font-size: 1rem;
-
       transform: translate(0.25rem, -0.125rem);
     }
 
-    .flip-card__name {
+    .name {
       margin: 0.25rem 0 0;
 
       font-family: Roboto, var(--default-fonts);
@@ -144,6 +142,7 @@
         mode: 'open'
       })
       shadowRoot.appendChild(template.content.cloneNode(true))
+      this.checkbox = shadowRoot.querySelector('.checkbox')
     }
 
     static get observedAttributes() {
@@ -155,11 +154,19 @@
     }
 
     set name(value) {
-      this.shadowRoot.querySelector('.flip-card__name').textContent = value
+      this.shadowRoot.querySelector('.name').textContent = value
     }
 
     set years(value) {
-      this.shadowRoot.querySelector('.content-back__years').textContent = value
+      this.shadowRoot.querySelector('.years').textContent = value
+    }
+
+    get flipped() {
+      return this.checkbox.checked;
+    }
+
+    set flipped(checked) {
+      this.checkbox.checked = checked
     }
   }
 

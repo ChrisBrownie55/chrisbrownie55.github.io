@@ -72,8 +72,8 @@
     </section>
 
     <section class='expertise'>
-      <h1 class='title expertise__title'>Expertise</h1>
-      <h1 class='subtitle expertise__subtitle'>What am I skilled at?</h1>
+      <h1 class='expertise__title title'>Expertise</h1>
+      <h1 class='expertise__subtitle subtitle'>What am I skilled at?</h1>
       <p class='expertise__hint'>You can click the cards to flip them.</p>
       <section class='expertise__skills'>
         <flip-card name='CSS3' years='3'>
@@ -118,11 +118,12 @@
             <path fill="var(--theme-primary)" d="M58.186 43.022c-2.957 0-5.044.35-7.132.871v.348h.348c1.393 2.784 3.827 4.698 5.566 7.133 1.393 2.783 2.61 5.568 4.003 8.352.173-.175.347-.348.347-.348 2.437-1.741 3.654-4.524 3.654-8.7-1.044-1.217-1.218-2.435-2.088-3.653-1.043-1.741-3.306-2.61-4.698-4.003z" />
           </svg>
         </flip-card>
-        </article>
       </section>
+      <button is='text-button' onclick='flipAllCards()'>Flip all cards</button>
+    </section>
 
-      <script src='js/smoothscroll.js'></script>
-      <script src='js/index.js'></script>
+    <script src='js/smoothscroll.js'></script>
+    <script src='js/index.js'></script>
   </body>
 
 </html>

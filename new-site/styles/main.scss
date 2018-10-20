@@ -106,11 +106,11 @@
   }
 }
 
-.header> {
-  .image {
+.header {
+  > .image {
     position: absolute !important;
   }
-  .blur {
+  > .blur {
     position: absolute !important;
   }
 }
