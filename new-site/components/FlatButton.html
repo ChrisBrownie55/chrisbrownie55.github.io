@@ -1,0 +1,45 @@
+<style id='flat-button-style'>
+  button[is='flat-button'] {
+    padding: 0.3rem 0.45rem;
+
+    background-color: transparent;
+    color: var(--dark-text);
+
+    border: none;
+    border-radius: 2px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: Montserrat, var(--default-fonts);
+    text-transform: uppercase;
+
+    transition: color 0.2s, background-color 0.2s;
+    will-change: color, background-color;
+    cursor: pointer;
+  }
+
+  button[is='flat-button']:active {
+    /* rgb(254, 215, 102) is var(--theme-primary) */
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  @media(hover: hover) {
+    button[is='flat-button']:hover {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  button[is='flat-button']:focus {
+    /* TODO: Add style to replace outline */
+    outline: none;
+  }
+
+</style>
+
+<script>
+  // Mitigates deprecation of style application in HTML Imports
+  document.head.appendChild(document.currentScript.ownerDocument.querySelector('style'));
+
+  // Defining a custom elemnet is not neccessary because I am only styling the is='flat-button'
+
+</script>

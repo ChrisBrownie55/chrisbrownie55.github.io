@@ -224,6 +224,21 @@ body > section {
       calc(var(--card-height) * var(--row-count)) +
         calc(1rem * calc(var(--row-count) - 1))
     );
+    margin-bottom: 1.5rem;
+  }
+
+  &__flip-button {
+    opacity: 0.75;
+
+    &:active {
+      opacity: 1;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
 
