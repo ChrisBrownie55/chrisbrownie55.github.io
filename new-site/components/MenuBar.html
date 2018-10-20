@@ -193,17 +193,19 @@
         }
       }
     }
+
   </style>
 </template>
 
 <script>
-
   class SideMenu extends HTMLElement {
     constructor() {
       super()
 
       const template = document.currentScript.ownerDocument.getElementById('side-menu-template')
-      const shadowRoot = this.attachShadow({ mode: 'open' })
+      const shadowRoot = this.attachShadow({
+        mode: 'open'
+      })
       shadowRoot.appendChild(template.content.cloneNode(true))
     }
 
@@ -219,7 +221,8 @@
     get links() {
       try {
         return JSON.parse(this.getAttribute('links'))
-      } catch {
+      }
+      catch {
         return []
       }
     }
@@ -248,5 +251,8 @@
     }
   }
 
-  customElements.define('side-menu', SideMenu, { extends: 'nav' })
+  customElements.define('side-menu', SideMenu, {
+    extends: 'nav'
+  })
+
 </script>
