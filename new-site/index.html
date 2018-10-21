@@ -14,6 +14,7 @@
     <link rel='import' href='components/FlatButton.html' />
     <link rel='import' href='components/MenuBar.html' />
     <link rel='import' href='components/FlipCard.html' />
+    <link rel='import' href='components/SlideItem.html' />
   </head>
 
   <body>
@@ -139,8 +140,28 @@
     </section>
 
     <section class='mywork'>
-
+      <h1 class='mywork__title title'>My Work</h1>
+      <slide-list>
+        <section>
+          <slide-item src='assets/partyox-min.png' alt='Party Ox' href='//partyox.herokuapp.com' description='Party Ox is a Progressive Web App that allows a DJ to receive, accept, and reject suggestions from members of the party.'></slide-item>
+          <slide-item src='' alt='' href='' description=''></slide-item>
+          <slide-item src='' alt='' href='' description=''></slide-item>
+        </section>
+        <section>
+          <slide-item src='' alt='' href='' description=''></slide-item>
+          <slide-item src='' alt='' href='' description=''></slide-item>
+          <slide-item src='' alt='' href='' description=''></slide-item>
+        </section>
+        <section>
+          <slide-item src='' alt='' href='' description=''></slide-item>
+          <slide-item src='' alt='' href='' description=''></slide-item>
+          <slide-item src='' alt='' href='' description=''></slide-item>
+        </section>
+      </slide-list>
     </section>
+
+    <script src='js/flickity.js'></script>
+    <link rel='import' href='components/SlideList.html' />
 
     <script src='js/smoothscroll.js'></script>
     <script src='js/index.js'></script>

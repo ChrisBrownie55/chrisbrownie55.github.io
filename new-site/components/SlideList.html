@@ -1,0 +1,34 @@
+<template id='slide-list-template'>
+  <slot>
+  </slot>
+
+  <style>
+    slide-list:focus {
+      outline: none;
+    }
+
+  </style>
+</template>
+
+<script>
+  class SlideList extends HTMLElement {
+    constructor() {
+      super()
+
+      const template = document.currentScript.ownerDocument.getElementById('slide-list-template')
+      this.appendChild(template.content.cloneNode(true))
+    }
+
+    connectedCallback() {
+      const carousel = new Flickity(this, {
+        prevNextButtons: true,
+        pageDots: true,
+        autoPlay: 5000,
+        parallax: null
+      })
+    }
+  }
+
+  customElements.define('slide-list', SlideList)
+
+</script>

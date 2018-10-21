@@ -1,0 +1,131 @@
+<template id='slide-item-template'>
+  <!-- Fill `src` and `alt` with corresponding data -->
+  <img class='image' />
+  <div class='content'>
+    <p class='description'>
+      <!-- {{ description }} -->
+    </p>
+    <!-- Fill `href` -->
+    <a class='explore-link'>Explore</a>
+  </div>
+
+  <style>
+    :host {
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+
+      overflow: hidden;
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+
+      transition: filter 0.2s;
+
+      object-fit: cover;
+    }
+
+    .content {
+      --slide-padding: 1rem;
+
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.5);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: calc(100% - calc(var(--slide-padding) * 2));
+      height: calc(100% - calc(var(--slide-padding) * 2));
+      padding: var(--slide-padding);
+
+      left: 0;
+      top: 0;
+
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    :host(:hover) .image {
+      filter: brightness(50%);
+    }
+
+    :host(:hover) .content {
+      opacity: 1;
+    }
+
+    .description {
+      max-width: 35rem;
+      margin: 0;
+
+      color: #fafafa;
+
+      font-family: var(--default-fonts);
+    }
+
+    .explore-link {
+      width: fit-content;
+      padding: 0.35rem 0.5rem;
+
+      color: #fafafa;
+
+      font-family: var(--default-fonts);
+      text-decoration: none;
+
+      border: solid 1px var(--theme-primary);
+      border-radius: 2px;
+
+      transition: background-color 0.175s, color 0.175s;
+    }
+
+    .explore-link:hover {
+      color: #222;
+      background-color: var(--theme-primary);
+    }
+
+  </style>
+</template>
+
+<script>
+  class SlideItem extends HTMLElement {
+    constructor() {
+      super()
+
+      const template = document.currentScript.ownerDocument.getElementById('slide-item-template')
+      const shadowRoot = this.attachShadow({
+        mode: 'open'
+      })
+      shadowRoot.appendChild(template.content.cloneNode(true))
+    }
+
+    static get observedAttributes() {
+      return ['src', 'alt', 'description', 'href']
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      this[name] = newValue
+    }
+
+    set src(value) {
+      this.shadowRoot.querySelector('.image').src = value
+    }
+
+    set alt(value) {
+      this.shadowRoot.querySelector('.image').alt = value
+    }
+
+    set description(value) {
+      this.shadowRoot.querySelector('.description').textContent = value
+    }
+
+    set href(value) {
+      this.shadowRoot.querySelector('.explore-link').href = value
+    }
+  }
+
+  customElements.define('slide-item', SlideItem)
+
+</script>
