@@ -13,10 +13,19 @@
     :host {
       position: relative;
 
+      grid-column: span 1;
+      grid-row: span 2;
+      overflow: hidden;
+
       width: 100%;
       height: 100%;
 
-      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    :host(:last-child) {
+      grid-column: span 2;
+      grid-row: span 3;
     }
 
     .image {
@@ -26,6 +35,10 @@
       transition: filter 0.2s;
 
       object-fit: cover;
+    }
+
+    :host(:hover) .image {
+      filter: brightness(50%);
     }
 
     .content {
@@ -49,12 +62,12 @@
       transition: opacity 0.25s;
     }
 
-    :host(:hover) .image {
-      filter: brightness(50%);
-    }
-
     :host(:hover) .content {
       opacity: 1;
+    }
+
+    :host(:last-child) .content {
+      --slide-padding: 1.5rem;
     }
 
     .description {
