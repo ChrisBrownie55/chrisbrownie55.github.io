@@ -214,27 +214,21 @@
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-      // since name is always 'links' (it's the only observed), no need to check
-      this.drawLinks()
+      this[name] = newValue
     }
 
-    get links() {
-      try {
-        return JSON.parse(this.getAttribute('links'))
-      }
-      catch {
-        return []
-      }
+    set links(value) {
+      this.drawLinks(JSON.parse(value))
     }
 
-    drawLinks() {
+    drawLinks(links) {
       const linkContainer = this.shadowRoot.querySelector('.menu__links')
       linkContainer.innerHTML = ''
 
-      const elements = this.links.forEach(name => {
+      const elements = links.forEach(name => {
         const button = document.createElement('button')
         button.textContent = name
-        // TODO: hyphenate instead of removing spaces, requires change in css as well
+        // TODO: hyphenate instead of removing spaces, requires change in css and html as well
         button.onclick = () => {
           const target = document.querySelector(`.${name.split(' ').join('').toLowerCase()}`)
           smoothScroll(target, 500)
