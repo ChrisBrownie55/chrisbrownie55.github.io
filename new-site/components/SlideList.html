@@ -1,22 +1,123 @@
-<template id='slide-list-template'>
-  <slot>
-  </slot>
+<style>
+  slide-list:focus {
+    outline: none;
+  }
 
-  <style>
-    slide-list:focus {
-      outline: none;
+  slide-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: calc(100% - 8rem);
+    max-width: 75rem;
+    height: calc(30rem + 5vh);
+    max-height: calc(100vh - 2rem);
+    padding: 0 4rem 4rem;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 800px) {
+    slide-list {
+      width: 100%;
+      min-width: 25rem;
+      height: 40rem;
+      max-height: unset;
+      padding-left: 0;
+      padding-right: 0;
+
     }
+    slide-list .flickity-button {
+      display: none;
+    }
+  }
 
-  </style>
-</template>
+  slide-list .flickity-viewport {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100% !important;
+
+    cursor: grab;
+  }
+
+  slide-list .flickity-viewport:active {
+    cursor: grabbing;
+  }
+
+  slide-list .flickity-button {
+    padding: 0;
+
+    background-color: transparent !important;
+
+    opacity: 0.5;
+    transition: opacity 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  }
+
+  slide-list .flickity-button:first-of-type {
+    left: 0;
+  }
+
+  slide-list .flickity-button:nth-of-type(2) {
+    right: 0;
+  }
+
+  slide-list .flickity-button .flickity-button-icon {
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+  }
+  slide-list .flickity-button .flickity-button-icon > path {
+    fill-rule: evenodd;
+    fill: #222;
+    transition: fill 0.25s ease-in-out;
+  }
+
+  slide-list .flickity-button:hover {
+    opacity: 0.8;
+
+  }
+  slide-list .flickity-button:hover .flickity-button-icon > path {
+    fill: var(--theme-primary);
+  }
+
+  slide-list .flickity-page-dots {
+    bottom: 1.5rem;
+  }
+
+  slide-list .flickity-page-dots .dot {
+    width: 1rem;
+    height: 0.15rem;
+
+    border-radius: 8px;
+
+    transition: width 0.3s 0.05s ease-in-out, height 0.3s 0.05s ease-in-out,
+      box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  slide-list:focus .flickity-page-dots .dot {
+    width: 1.5rem;
+    height: 0.45rem;
+
+    border-radius: 12px;
+  }
+
+  slide-list:focus .flickity-page-dots .dot.is-selected {
+    box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.25);
+  }
+
+</style>
 
 <script>
+  document.head.appendChild(document.currentScript.ownerDocument.querySelector('style'));
+
   class SlideList extends HTMLElement {
     constructor() {
       super()
-
-      const template = document.currentScript.ownerDocument.getElementById('slide-list-template')
-      this.appendChild(template.content.cloneNode(true))
     }
 
     connectedCallback() {
