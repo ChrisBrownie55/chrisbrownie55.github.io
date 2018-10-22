@@ -14,6 +14,16 @@
   width: calc(100vw - calc(var(--side-padding) * 2));
   padding-left: var(--side-padding);
   padding-right: var(--side-padding);
+
+  background-color: #eee;
+
+  &__title {
+    text-align: right;
+  }
+
+  @media (max-width: 800px) {
+    --side-padding: 0;
+  }
 }
 
 .header {
@@ -232,14 +242,6 @@ body > section {
         opacity: 1;
       }
     }
-  }
-}
-
-.mywork {
-  background-color: #eee;
-
-  &__title {
-    text-align: right;
   }
 }
 
@@ -538,8 +540,8 @@ body > section {
   }
 
   body > section {
-    width: calc(99vw - 8rem) !important;
-    padding: 4.5rem calc(4rem + 0.5vw) !important;
+    width: calc(99vw - 8rem);
+    padding: 4.5rem calc(4rem + 0.5vw);
   }
 
   .hire {
