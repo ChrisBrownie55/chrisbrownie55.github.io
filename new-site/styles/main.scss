@@ -316,6 +316,26 @@ body > section {
       }
     }
   }
+
+  @media (min-width: 1535px) {
+    &__title {
+      margin-left: calc(50% - 40rem);
+    }
+
+    &__subtitle {
+      margin-left: calc(50% - 40rem);
+    }
+  }
+
+  @media (max-width: 450px) {
+    form button {
+      width: 90%;
+
+      &:hover {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .about {
@@ -424,8 +444,12 @@ body > section {
     display: flex;
     flex-direction: column;
 
-    width: calc(100% - 8rem);
-    max-width: 30rem;
+    width: 30rem;
+    max-width: calc(50% - 1rem);
+
+    @media (max-width: 800px) {
+      max-width: 100%;
+    }
 
     .title {
       margin: 0 0 1.2rem;
@@ -497,26 +521,7 @@ body > section {
     }
   }
 }
-@media (min-width: 1535px) {
-  .hire {
-    .title {
-      margin-left: calc(50% - 40rem);
-    }
 
-    .subtitle {
-      margin-left: calc(50% - 40rem);
-    }
-  }
-}
-@media (max-width: 450px) {
-  .hire form button {
-    width: 90%;
-
-    &:hover {
-      width: 100%;
-    }
-  }
-}
 @media (min-width: 801px) {
   .about > div {
     display: flex;
