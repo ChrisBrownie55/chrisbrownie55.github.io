@@ -90,10 +90,14 @@
       height: 100%;
 
       cursor: pointer;
+
+      color: white;
+      transition: color 0.2s;
     }
 
     .bar {
-      fill: white;
+      color: inherit;
+      fill: currentColor;
 
       transform: translate(0);
       transform-origin: center;
@@ -207,6 +211,41 @@
         mode: 'open'
       })
       shadowRoot.appendChild(template.content.cloneNode(true))
+
+      window.addEventListener('scroll', this.updateColorOnScroll.bind(this))
+    }
+
+    updateColorOnScroll() {
+      const sections = Array.from(document.querySelectorAll(`
+        body > header,
+        body > section,
+        body > footer
+      `))
+      const navButton = this.shadowRoot.children[1].children[0]
+      const { y, height } = navButton.getBoundingClientRect()
+
+      sections.some(section => {
+        const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect()
+
+        // navButton is within section
+        if (y >= sectionY && y + height < sectionY + sectionHeight) {
+          const [r, g, b] = getComputedStyle(section)
+            .backgroundColor
+            .slice(4, -1)
+            .split(',')
+            .map(x => parseInt(x))
+
+          // calculates the brightness on a scale of 0 -> 255
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000
+
+          if (brightness > 200) {
+            // it's quite bright
+            navButton.style.color = 'black'
+          } else {
+            navButton.style.color = 'white'
+          }
+        }
+      })
     }
 
     static get observedAttributes() {
