@@ -19,10 +19,16 @@
 
   &__title {
     text-align: right;
+    margin-right: calc(calc(7rem + 1vw) - var(--side-padding));
   }
 
   @media (max-width: 800px) {
     --side-padding: 0;
+
+    &__title {
+      text-align: center !important;
+      margin-right: 0;
+    }
   }
 }
 
