@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en' dir='ltr'>
 
   <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <meta charset='utf-8'  />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'  />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'  />
     <title>Chris Brown</title>
     <!-- CSS -->
     <link rel='stylesheet' href='styles/main.css' />
     <link rel='stylesheet' href='styles/flickity.css' />
 
     <!-- Components -->
-    <link rel='import' href='components/BaseButton.html' />
+    <link rel='import' href='components/ThemeButton.html' />
     <link rel='import' href='components/FlatButton.html' />
+
+    <link rel='import' href='components/FloatingInput.html' />
+
     <link rel='import' href='components/MenuBar.html' />
     <link rel='import' href='components/FlipCard.html' />
-    <link rel='import' href='components/SlideItem.html' />
   </head>
 
   <body>
@@ -31,7 +33,7 @@
         <br />
         I engineer websites.
       </h1>
-      <button is='base-button' class='header__hire-button' scroll-target='.hire'>
+      <button is='theme-button' class='header__hire-button' scroll-target='.hire'>
         Yes, I'm available for hire
       </button>
       <button class='header__learn-more' scroll-target='.about'>
@@ -315,10 +317,50 @@
     <section class='hire'>
       <h1 class='hire__title title'>Contact Form</h1>
       <p class='hire__subtitle'>Get in touch about a project</p>
+      <form
+        accept-charset='utf-8'
+        action='https://usebasin.com/f/a8eea5a304e0'
+        enctype='multipart/form-data'
+        method='post'
+      >
+        <FloatingInput
+          label='Name'
+          placeholder='Josephine Smalls'
+          type='text'
+          name='name'
+          required
+        ></FloatingInput>
+        <FloatingInput
+          label='Email'
+          placeholder='josephine.smalls@soylent.com'
+          type='email'
+          name='email'
+          required
+        ></FloatingInput>
+        <FloatingInput
+          label='Phone'
+          placeholder='(432) 861-7975'
+          type='tel'
+          name='phone'
+        ></FloatingInput>
+        <FloatingInput
+          label='Website'
+          placeholder='https://soylent.com'
+          type='url'
+          name='website'
+        ></FloatingInput>
+        <FloatingInput
+          label='Message'
+          placeholder='Leave a message for me about what you want to talk about.'
+          type='text'
+          name='name'
+        ></FloatingInput>
+      </form>
     </section>
 
     <script src='js/flickity.js'></script>
     <link rel='import' href='components/SlideList.html' />
+    <link rel='import' href='components/SlideItem.html' />
 
     <script src='js/smoothscroll.js'></script>
     <script src='js/index.js'></script>

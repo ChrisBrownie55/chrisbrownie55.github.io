@@ -1,5 +1,5 @@
-<style id='base-button-style'>
-  button[is='base-button'] {
+<style id='theme-button-style'>
+  button[is='theme-button'] {
     position: relative;
 
     padding: 0.85rem 1.75rem;
@@ -20,7 +20,7 @@
     cursor: pointer;
   }
 
-  button[is='base-button']::after {
+  button[is='theme-button']::after {
     content: '';
 
     position: absolute;
@@ -37,7 +37,7 @@
     transition: width 0.2s;
   }
 
-  button[is='base-button']:active {
+  button[is='theme-button']:active {
     padding: 0.85rem 2.75rem;
 
     color: var(--dark-text);
@@ -47,7 +47,7 @@
   }
 
   @media (hover: hover) {
-    button[is='base-button']:hover {
+    button[is='theme-button']:hover {
       padding: 0.85rem 2.75rem;
 
       color: var(--dark-text);
@@ -55,11 +55,11 @@
     }
   }
 
-  button[is='base-button']:focus {
+  button[is='theme-button']:focus {
     outline: none;
   }
 
-  button[is='base-button']:focus:not(:active)::after {
+  button[is='theme-button']:focus:not(:active)::after {
     width: 80%;
   }
 
@@ -69,6 +69,6 @@
   // Mitigates deprecation of style application in HTML Imports
   document.head.appendChild(document.currentScript.ownerDocument.querySelector('style'));
 
-  // Defining a custom elemnet is not neccessary because I am only styling the is='base-button'
+  // Defining a custom elemnet is not neccessary because I am only styling the is='theme-button'
 
 </script>
