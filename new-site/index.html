@@ -329,14 +329,14 @@
           placeholder='Josephine Smalls'
           type='text'
           name='name'
-          required
+          aria-required='true'
         ></floating-input>
         <floating-input
           label='Email'
           placeholder='josephine.smalls@soylent.com'
           type='email'
           name='email'
-          required
+          aria-required='true'
           spellcheck='false'
         ></floating-input>
         <floating-input
@@ -346,6 +346,7 @@
           name='phone'
           pattern="^\d{3}-\d{3}-\d{4}$|^\d{10}$|^\(\d{3}\) \d{3}-\d{4}$|^\(\d{3}\) \d{3} \d{4}$|^\d{3} \d{3} \d{4}$"
           spellcheck='false'
+          aria-required='false'
         ></floating-input>
         <floating-input
           label='Website'
@@ -353,12 +354,14 @@
           type='url'
           name='website'
           spellcheck='false'
+          aria-required='false'
         ></floating-input>
         <floating-input
           label='Message'
           placeholder='Leave a message for me about what you want to talk about.'
           type='textarea'
           name='name'
+          aria-required='false'
         ></floating-input>
 
         <button is='theme-button' type='submit' class='submit-button'>SUBMIT INFORMATION</button>
