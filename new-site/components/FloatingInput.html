@@ -92,6 +92,20 @@
       font-size: 0.8rem;
     }
 
+    floating-input input:-webkit-autofill~label,
+    floating-input textarea:-webkit-autofill~label {
+      top: -15%;
+      color: LightGrey;
+      font-size: 0.8rem;
+    }
+
+    floating-input input:autofill~label,
+    floating-input textarea:autofill~label {
+      top: -15%;
+      color: LightGrey;
+      font-size: 0.8rem;
+    }
+
     floating-input input:not(.notempty)::placeholder,
     floating-input textarea:not(.notempty)::placeholder {
       opacity: 0;
