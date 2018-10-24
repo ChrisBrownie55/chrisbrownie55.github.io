@@ -535,7 +535,7 @@ body > section {
         object-fit: contain;
 
         path {
-          stroke-linecap: rounded;
+          stroke-linecap: round;
           transition: fill 0.25s ease-in-out, stroke-width 0.25s ease-in-out;
         }
       }
