@@ -336,25 +336,31 @@
           type='email'
           name='email'
           required
+          spellcheck='false'
         ></floating-input>
         <floating-input
           label='Phone'
           placeholder='(432) 861-7975'
           type='tel'
           name='phone'
+          pattern="^\d{3}-\d{3}-\d{4}$|^\d{10}$|^\(\d{3}\) \d{3}-\d{4}$|^\(\d{3}\) \d{3} \d{4}$|^\d{3} \d{3} \d{4}$"
+          spellcheck='false'
         ></floating-input>
         <floating-input
           label='Website'
           placeholder='https://soylent.com'
           type='url'
           name='website'
+          spellcheck='false'
         ></floating-input>
         <floating-input
           label='Message'
           placeholder='Leave a message for me about what you want to talk about.'
-          type='text'
+          type='textarea'
           name='name'
         ></floating-input>
+
+        <button is='theme-button' type='submit'>SUBMIT INFORMATION</button>
       </form>
     </section>
 
