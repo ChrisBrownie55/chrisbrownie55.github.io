@@ -31,3 +31,14 @@ function flipAllCards() {
     flipCards.forEach(setFlippedWithDelay(true))
   }
 }
+
+
+function resetForm(event) {
+  event.target.querySelectorAll('input, textarea')
+    .forEach(el => {
+      el.value = ''
+      el.classList.remove('notempty')
+    })
+
+  event.preventDefault()
+}
