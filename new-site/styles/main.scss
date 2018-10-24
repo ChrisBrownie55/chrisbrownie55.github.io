@@ -499,34 +499,33 @@ body > section {
   display: flex;
   flex-direction: column;
 
-  background-color: #fff;
+  background-color: var(--theme-secondary);
 
   &__title {
+    color: white;
     text-align: center;
   }
 
   div {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
 
     width: 100%;
 
     a[href] {
-      width: calc(1.5rem + 7.5vw);
-      max-width: 5rem;
-      height: calc(1.5rem + 7.5vw);
-      max-height: 5rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      padding: 0.65rem;
 
+      border: solid 2px rgba(white, 0.5);
+      border-radius: 50%;
+
+      transition: background-color 0.2s;
       cursor: pointer;
 
-      &:focus {
-        outline: none;
-
-        svg path {
-          stroke: var(--theme-primary);
-          stroke-width: 2px;
-        }
+      &:not(:last-child) {
+        margin-right: 0.75rem;
       }
 
       svg {
@@ -541,8 +540,14 @@ body > section {
         }
       }
 
-      &:hover svg path {
-        fill: var(--theme-primary);
+      &:hover,
+      &:focus {
+        outline: none;
+        background-color: white;
+
+        svg path {
+          fill: var(--theme-secondary);
+        }
       }
     }
   }
@@ -589,13 +594,11 @@ body > section {
       left: -1rem;
     }
 
-    > {
-      .subtitle {
-        text-align: center;
-        margin-top: 0.5rem;
-      }
+    .subtitle {
+      text-align: center;
+      margin-top: 0.5rem;
 
-      .subtitle::before {
+      &::before {
         width: 0;
         margin: 0;
         border: none;
