@@ -147,9 +147,10 @@
       this.appendChild(template.content.cloneNode(true))
 
       // Setup `id` and `for`
-      const id = `floating-input${++i}`
-      this.querySelector('label').setAttribute('for', id)
-      this.querySelector('input, textarea').id = id
+      this._inputId = `floating-input${++i}`
+
+      this.querySelector('label').setAttribute('for', this._inputId)
+      this.querySelector('input, textarea').id = this._inputId
 
       // attach event listener to update with `.notempty`
       this.querySelector('input, textarea').addEventListener('input', this.updateEmptyOnInput.bind(this))
@@ -195,12 +196,14 @@
 
         const textarea = document.createElement('textarea')
         textarea.addEventListener('input', this.updateEmptyOnInput.bind(this))
+
         FloatingInput.observedAttributes.slice(1).forEach(attrName => {
           if (!this[attrName]) { return }
           textarea.setAttribute(attrName, this[attrName])
         })
 
         this.replaceChild(textarea, input)
+        textarea.id = this._inputId
         return
       }
 

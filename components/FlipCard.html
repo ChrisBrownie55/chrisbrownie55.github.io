@@ -1,5 +1,5 @@
 <template id='flip-card-template'>
-  <input class='checkbox' type='checkbox' />
+  <input id='checkbox' class='checkbox' type='checkbox' role='switch' aria-checked='false' />
   <figure class='content'>
     <slot>
       <!-- SVG goes in default slot -->
@@ -13,9 +13,9 @@
       </p>
     </figcaption>
   </figure>
-  <h4 class='name'>
+  <label for='checkbox' class='name'>
     <!-- Fill with `name` attribute -->
-  </h4>
+  </label>
 
   <style>
     :host {
@@ -127,7 +127,6 @@
       font-family: Roboto, var(--default-fonts);
       text-align: center;
     }
-
   </style>
 </template>
 
@@ -143,6 +142,7 @@
       })
       shadowRoot.appendChild(template.content.cloneNode(true))
       this.checkbox = shadowRoot.querySelector('.checkbox')
+      this.checkbox.addEventListener('input', event => this.checkbox.setAttribute('aria-checked', 'false'))
     }
 
     static get observedAttributes() {
