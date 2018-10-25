@@ -7,133 +7,135 @@
   <label>
     <!-- {{ label }} -->
   </label>
-
-  <style>
-    floating-input {
-      position: relative;
-      display: flex;
-    }
-
-    floating-input::after {
-      content: '';
-
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-
-      width: 0;
-      height: 1px;
-
-      background-color: var(--theme-primary);
-
-      transition: width 0.25s ease-in-out;
-    }
-
-    floating-input[type='text-area']::after {
-      bottom: -5px;
-    }
-
-    floating-input:focus-within::after {
-      width: 100%;
-    }
-
-    floating-input input,
-    floating-input textarea {
-      width: 100%;
-      height: 100%;
-
-      background-color: transparent;
-
-      font-family: Questrial, var(--default-fonts);
-      font-size: 1.125rem;
-
-      border: none;
-      border-bottom: solid 1px #fff;
-
-      color: white;
-
-      resize: none;
-    }
-
-    floating-input input:-webkit-autofill,
-    floating-input textarea:-webkit-autofill {
-      transition: background-color 999999s;
-      -webkit-text-fill-color: #fff;
-      text-fill-color: #fff;
-      caret-color: #fff;
-    }
-
-    floating-input input:autofill,
-    floating-input textarea:autofill {
-      transition: background-color 999999s;
-      -webkit-text-fill-color: #fff;
-      text-fill-color: #fff;
-      caret-color: #fff;
-    }
-
-    floating-input input.notempty:not(:focus):invalid,
-    floating-input textarea.notempty:not(:focus):invalid {
-      border-bottom-color: #f00;
-      border-bottom-width: 2px;
-    }
-
-    floating-input input.notempty:not(:focus):valid,
-    floating-input textarea.notempty:not(:focus):valid {
-      border-bottom-color: #008000;
-      border-bottom-width: 2px;
-    }
-
-    floating-input input.notempty~label,
-    floating-input input:focus~label,
-    floating-input textarea.notempty~label,
-    floating-input textarea:focus~label {
-      top: -15%;
-      color: LightGrey;
-      font-size: 0.8rem;
-    }
-
-    floating-input input:-webkit-autofill~label,
-    floating-input textarea:-webkit-autofill~label {
-      top: -15%;
-      color: LightGrey;
-      font-size: 0.8rem;
-    }
-
-    floating-input input:autofill~label,
-    floating-input textarea:autofill~label {
-      top: -15%;
-      color: LightGrey;
-      font-size: 0.8rem;
-    }
-
-    floating-input input:not(.notempty)::placeholder,
-    floating-input textarea:not(.notempty)::placeholder {
-      opacity: 0;
-    }
-
-    floating-input input:focus,
-    floating-input textarea:focus {
-      outline: none;
-    }
-
-    floating-input label {
-      position: absolute;
-      top: 0.75rem;
-      left: 0.15rem;
-
-      font-family: Questrial, var(--default-fonts);
-      font-size: 1.125rem;
-
-      transition: top 0.25s, font-size 0.15s, color 0.15s;
-      will-change: top, font-size, color;
-
-      cursor: text;
-      user-select: none;
-    }
-  </style>
 </template>
 
+<style>
+  floating-input {
+    position: relative;
+    display: flex;
+  }
+
+  floating-input[type='textarea']::after {
+    bottom: -5px;
+  }
+
+  floating-input::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+
+    width: 0;
+    height: 1px;
+
+    background-color: var(--theme-primary);
+
+    transition: width 0.25s ease-in-out;
+  }
+
+  floating-input:focus-within::after {
+    width: 100%;
+  }
+
+  floating-input input,
+  floating-input textarea {
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+
+    font-family: Questrial, var(--default-fonts);
+    font-size: 1.125rem;
+
+    border: none;
+    border-bottom: solid 1px #fff;
+
+    color: white;
+
+    resize: none;
+  }
+
+  floating-input input:-webkit-autofill,
+  floating-input textarea:-webkit-autofill {
+    transition: background-color 999999s;
+    -webkit-text-fill-color: #fff;
+    text-fill-color: #fff;
+    caret-color: #fff;
+  }
+
+  floating-input input:autofill,
+  floating-input textarea:autofill {
+    transition: background-color 999999s;
+    -webkit-text-fill-color: #fff;
+    text-fill-color: #fff;
+    caret-color: #fff;
+  }
+
+  floating-input input.notempty:not(:focus):invalid,
+  floating-input textarea.notempty:not(:focus):invalid {
+    border-bottom-color: #f00;
+    border-bottom-width: 2px;
+  }
+
+  floating-input input.notempty:not(:focus):valid,
+  floating-input textarea.notempty:not(:focus):valid {
+    border-bottom-color: #008000;
+    border-bottom-width: 2px;
+  }
+
+  floating-input input.notempty~label,
+  floating-input input:focus~label,
+  floating-input textarea.notempty~label,
+  floating-input textarea:focus~label {
+    top: -15%;
+    color: LightGrey;
+    font-size: 0.8rem;
+  }
+
+  floating-input input:-webkit-autofill~label,
+  floating-input textarea:-webkit-autofill~label {
+    top: -15%;
+    color: LightGrey;
+    font-size: 0.8rem;
+  }
+
+  floating-input input:autofill~label,
+  floating-input textarea:autofill~label {
+    top: -15%;
+    color: LightGrey;
+    font-size: 0.8rem;
+  }
+
+  floating-input input:not(.notempty)::placeholder,
+  floating-input textarea:not(.notempty)::placeholder {
+    opacity: 0;
+  }
+
+  floating-input input:focus,
+  floating-input textarea:focus {
+    outline: none;
+  }
+
+  floating-input label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.15rem;
+
+    font-family: Questrial, var(--default-fonts);
+    font-size: 1.125rem;
+
+    transition: top 0.25s, font-size 0.15s, color 0.15s;
+    will-change: top, font-size, color;
+
+    cursor: text;
+    user-select: none;
+  }
+</style>
+
 <script>
+document.head.appendChild(document.currentScript.ownerDocument.querySelector('style'));
+
 let i = 0;
 
 class FloatingInput extends HTMLElement {
