@@ -767,4 +767,24 @@ body::-webkit-scrollbar-thumb {
 .logo {
   width: 5rem;
   height: 5rem;
+
+  &.primary {
+    .logo__square {
+      fill: var(--theme-primary);
+    }
+
+    .logo__c {
+      fill: var(--dark-text);
+    }
+  }
+
+  &.secondary {
+    .logo__square {
+      fill: var(--light-text);
+    }
+
+    .logo__c {
+      fill: var(--theme-secondary);
+    }
+  }
 }
