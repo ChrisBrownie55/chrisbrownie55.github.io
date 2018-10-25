@@ -335,15 +335,18 @@ body > section {
       align-items: center;
 
       .submit-button {
-        width: 21rem;
-        height: 4rem;
         margin-bottom: 1rem;
-
         font-size: 1.1rem;
-        transition: width 0.2s, background-color 0.2s;
 
         &:hover {
-          width: 23rem;
+          padding: 0.85rem 3.5rem;
+        }
+
+        @media (max-width: 450px) {
+          padding: 0.85rem 1.75rem !important;
+
+          font-size: 1rem;
+          white-space: nowrap;
         }
       }
     }
@@ -356,16 +359,6 @@ body > section {
 
     &__subtitle {
       margin-left: calc(50% - 40rem);
-    }
-  }
-
-  @media (max-width: 450px) {
-    form button {
-      width: 90%;
-
-      &:hover {
-        width: 100%;
-      }
     }
   }
 }
@@ -760,6 +753,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-track {
   -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 body::-webkit-scrollbar-thumb {
