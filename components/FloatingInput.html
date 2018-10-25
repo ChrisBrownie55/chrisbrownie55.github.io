@@ -74,13 +74,13 @@
 
   floating-input input.notempty:not(:focus):invalid,
   floating-input textarea.notempty:not(:focus):invalid {
-    border-bottom-color: #f00;
+    border-bottom-color: rgb(255, 107, 107);
     border-bottom-width: 2px;
   }
 
   floating-input input.notempty:not(:focus):valid,
   floating-input textarea.notempty:not(:focus):valid {
-    border-bottom-color: #008000;
+    border-bottom-color: #59f059;
     border-bottom-width: 2px;
   }
 
@@ -134,80 +134,80 @@
 </style>
 
 <script>
-document.head.appendChild(document.currentScript.ownerDocument.querySelector('style'));
+  document.head.appendChild(document.currentScript.ownerDocument.querySelector('style'));
 
-let i = 0;
+  let i = 0;
 
-class FloatingInput extends HTMLElement {
-  constructor() {
-    super()
+  class FloatingInput extends HTMLElement {
+    constructor() {
+      super()
 
-    const template = document.currentScript.ownerDocument.getElementById('floating-input-template')
+      const template = document.currentScript.ownerDocument.getElementById('floating-input-template')
 
-    this.appendChild(template.content.cloneNode(true))
+      this.appendChild(template.content.cloneNode(true))
 
-    // Setup `id` and `for`
-    const id = `floating-input${++i}`
-    this.querySelector('label').setAttribute('for', id)
-    this.querySelector('input, textarea').id = id
+      // Setup `id` and `for`
+      const id = `floating-input${++i}`
+      this.querySelector('label').setAttribute('for', id)
+      this.querySelector('input, textarea').id = id
 
-    // attach event listener to update with `.notempty`
-    this.querySelector('input, textarea').addEventListener('input', this.updateEmptyOnInput.bind(this))
-  }
-
-  updateEmptyOnInput(event) {
-    if (event.target.value === '') {
-      event.target.classList.remove('notempty')
-    } else {
-      event.target.classList.add('notempty')
+      // attach event listener to update with `.notempty`
+      this.querySelector('input, textarea').addEventListener('input', this.updateEmptyOnInput.bind(this))
     }
-  }
 
-  static get observedAttributes() {
-    return ['label', 'type', 'placeholder', 'name', 'required', 'spellcheck', 'pattern']
-  }
+    updateEmptyOnInput(event) {
+      if (event.target.value === '') {
+        event.target.classList.remove('notempty')
+      } else {
+        event.target.classList.add('notempty')
+      }
+    }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue === newValue) { return }
-    this[name] = newValue
+    static get observedAttributes() {
+      return ['label', 'type', 'placeholder', 'name', 'required', 'spellcheck', 'pattern']
+    }
 
-    if (name !== 'label') {
-      if (name === 'required') {
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (oldValue === newValue) { return }
+      this[name] = newValue
 
+      if (name !== 'label') {
+        if (name === 'required') {
+
+        }
+
+        this.querySelector('input, textarea').setAttribute(name, newValue)
+      }
+    }
+
+    set label(value) {
+      this.querySelector('label').textContent = value
+    }
+
+    get label() {
+      return this.querySelector('label').textContent
+    }
+
+    set type(value) {
+      if (value === 'textarea') {
+        const input = this.querySelector('input')
+        if (!input) { return }
+
+        const textarea = document.createElement('textarea')
+        textarea.addEventListener('input', this.updateEmptyOnInput.bind(this))
+        FloatingInput.observedAttributes.slice(1).forEach(attrName => {
+          if (!this[attrName]) { return }
+          textarea.setAttribute(attrName, this[attrName])
+        })
+
+        this.replaceChild(textarea, input)
+        return
       }
 
-      this.querySelector('input, textarea').setAttribute(name, newValue)
+      this.querySelector('input').setAttribute('type', value)
     }
   }
 
-  set label(value) {
-    this.querySelector('label').textContent = value
-  }
-
-  get label() {
-    return this.querySelector('label').textContent
-  }
-
-  set type(value) {
-    if (value === 'textarea') {
-      const input = this.querySelector('input')
-      if (!input) { return }
-
-      const textarea = document.createElement('textarea')
-      textarea.addEventListener('input', this.updateEmptyOnInput.bind(this))
-      FloatingInput.observedAttributes.slice(1).forEach(attrName => {
-        if (!this[attrName]) { return }
-        textarea.setAttribute(attrName, this[attrName])
-      })
-
-      this.replaceChild(textarea, input)
-      return
-    }
-
-    this.querySelector('input').setAttribute('type', value)
-  }
-}
-
-customElements.define('floating-input', FloatingInput)
+  customElements.define('floating-input', FloatingInput)
 
 </script>
